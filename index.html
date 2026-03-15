@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTMiQ — Outbound Engines for AI & Web3 Startups</title>
+  <meta name="description" content="I build your outbound pipeline in 4 weeks. AI-powered lead scoring, signal-based sequences, n8n automation. 8-15% reply rates. For AI and Web3 startups, Seed to Series A.">
+  <!-- OG Meta Tags -->
+  <meta property="og:title" content="GTMiQ — Your Product Works. Your Pipeline Doesn't.">
+  <meta property="og:description" content="AI-powered outbound engines for startups. From zero to a running pipeline in 4 weeks. 8-15% cold reply rates. Built and proven in Web3, now serving AI & SaaS.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://gtm-david.vercel.app">
+  <meta property="og:image" content="https://gtm-david.vercel.app/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="GTMiQ — Your Product Works. Your Pipeline Doesn't.">
+  <meta name="twitter:description" content="AI-powered outbound engines for startups. From zero to a running pipeline in 4 weeks. 8-15% cold reply rates.">
+  <!-- Plausible Analytics -->
+  <script defer data-domain="gtm-david.vercel.app" src="https://plausible.io/js/script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0b;
+      --bg-card: #111113;
+      --bg-card-hover: #1a1a1d;
+      --accent: #4ade80;
+      --accent-dim: rgba(74,222,128,0.12);
+      --accent-glow: rgba(74,222,128,0.25);
+      --text: #e4e4e7;
+      --text-dim: #a1a1aa;
+      --text-muted: #8a8a93;
+      --border: rgba(255,255,255,0.06);
+      --border-accent: rgba(74,222,128,0.2);
+      --red: #f87171;
+      --yellow: #fbbf24;
+      --blue: #60a5fa;
+      --sans: 'DM Sans', -apple-system, sans-serif;
+      --mono: 'JetBrains Mono', monospace;
+      --serif: 'Instrument Serif', serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    /* Skip navigation */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 16px;
+      z-index: 200;
+      padding: 12px 24px;
+      background: var(--accent);
+      color: var(--bg);
+      font-weight: 600;
+      border-radius: 0 0 8px 8px;
+      text-decoration: none;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* Global focus-visible */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    [tabindex]:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+    }
+
+    /* Screen-reader only */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0,0,0,0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10,10,11,0.85);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text-dim);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      background: var(--accent) !important;
+      color: var(--bg) !important;
+      padding: 8px 20px;
+      border-radius: 6px;
+      font-weight: 600 !important;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-cta:hover { opacity: 0.9; }
+
+    .mobile-menu { display: none; cursor: pointer; }
+    .mobile-menu span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      margin: 5px 0;
+      transition: 0.3s;
+    }
+
+    /* CONTAINER */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 160px 0 100px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      background: var(--accent-dim);
+      border: 1px solid var(--border-accent);
+      border-radius: 100px;
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 32px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .hero-badge .pulse {
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(40px, 6vw, 68px);
+      font-weight: 400;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 24px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 em {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .hero .subline {
+      font-size: 18px;
+      color: var(--text-dim);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      padding: 14px 32px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* STATS BAR */
+    .stats-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 60px;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .stat-item {
+      background: var(--bg-card);
+      padding: 24px;
+      text-align: center;
+    }
+
+    .stat-num {
+      font-family: var(--mono);
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .stat-context {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+
+    /* SOCIAL PROOF / LOGOS */
+    .social-proof {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .social-proof-label {
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 28px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .logo-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .logo-item {
+      font-family: var(--mono);
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--text-muted);
+      opacity: 0.65;
+      transition: opacity 0.3s;
+      letter-spacing: 0.5px;
+    }
+
+    .logo-item:hover { opacity: 0.9; }
+
+    /* SECTIONS */
+    section {
+      padding: 100px 0;
+    }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 48px);
+      color: #fff;
+      margin-bottom: 20px;
+      line-height: 1.15;
+    }
+
+    .section-subtitle {
+      font-size: 17px;
+      color: var(--text-dim);
+      max-width: 600px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    /* PROBLEM SECTION */
+    #problem {
+      border-top: 1px solid var(--border);
+    }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .problem-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      transition: all 0.3s;
+    }
+
+    .problem-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+
+    .problem-card.bad { border-left: 3px solid var(--red); }
+    .problem-card.good { border-left: 3px solid var(--accent); }
+
+    .problem-card h3 {
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .problem-card.bad h3 { color: var(--red); }
+    .problem-card.good h3 { color: var(--accent); }
+
+    .problem-card p {
+      font-size: 15px;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    /* RESULTS */
+    .results-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: 16px;
+      padding: 48px;
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    .results-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin: 40px 0;
+    }
+
+    .result-num {
+      font-family: var(--mono);
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--accent);
+    }
+
+    .result-label {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .result-context {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-top: 2px;
+    }
+
+    .results-context {
+      font-size: 16px;
+      color: var(--text-dim);
+      font-style: italic;
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* HOW IT WORKS */
+    .steps {
+      display: grid;
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 24px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 32px;
+      transition: all 0.3s;
+    }
+
+    .step:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-2px);
+    }
+
+    .step-num {
+      font-family: var(--mono);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--accent);
+      opacity: 0.4;
+    }
+
+    .step h3 {
+      font-size: 18px;
+      color: #fff;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .step p {
+      font-size: 15px;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    .step-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 3px 10px;
+      background: var(--accent-dim);
+      color: var(--accent);
+      border-radius: 4px;
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* WHO THIS IS FOR */
+    .qualifier-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 48px;
+    }
+
+    .qualifier-col h3 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .qualifier-col.yes h3 { color: var(--accent); }
+    .qualifier-col.no h3 { color: var(--red); }
+
+    .qualifier-col ul {
+      list-style: none;
+    }
+
+    .qualifier-col ul li {
+      font-size: 15px;
+      color: var(--text-dim);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      line-height: 1.5;
+    }
+
+    .qualifier-col ul li:last-child { border-bottom: none; }
+
+    .qualifier-col ul li span.qi {
+      flex-shrink: 0;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .qualifier-col.yes .qi { color: var(--accent); }
+    .qualifier-col.no .qi { color: var(--red); }
+
+    /* SCORECARD */
+    #scorecard {
+      border-top: 1px solid var(--border);
+    }
+
+    .scorecard-container {
+      max-width: 700px;
+      margin: 48px auto 0;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 48px;
+    }
+
+    .scorecard-progress {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 40px;
+    }
+
+    .progress-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--border);
+      transition: all 0.3s;
+    }
+
+    .progress-dot.active { background: var(--accent); }
+    .progress-dot.done { background: var(--accent); opacity: 0.5; }
+
+    .scorecard-question {
+      font-size: 20px;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .scorecard-context {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .scorecard-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .scorecard-option {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 15px;
+      color: var(--text-dim);
+      font-family: var(--sans);
+      width: 100%;
+      text-align: left;
+    }
+
+    .scorecard-option:hover {
+      border-color: var(--border-accent);
+      background: var(--accent-dim);
+      color: var(--text);
+    }
+
+    .scorecard-option.selected {
+      border-color: var(--accent);
+      background: var(--accent-dim);
+      color: var(--accent);
+    }
+
+    .scorecard-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 32px;
+    }
+
+    .scorecard-btn {
+      padding: 12px 28px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s;
+    }
+
+    .scorecard-btn.next {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .scorecard-btn.next:hover { opacity: 0.9; }
+    .scorecard-btn.next:disabled { opacity: 0.3; cursor: not-allowed; }
+
+    .scorecard-btn.back {
+      background: transparent;
+      color: var(--text-dim);
+      border: 1px solid var(--border);
+    }
+
+    .scorecard-btn.back:hover { border-color: var(--text-dim); }
+
+    /* Email gate */
+    .email-gate { display: none; }
+    .email-gate.active { display: block; }
+
+    .email-gate input {
+      width: 100%;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      font-size: 15px;
+      font-family: var(--sans);
+      margin-bottom: 12px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .email-gate input:focus { border-color: var(--accent); }
+    .email-gate input::placeholder { color: var(--text-muted); }
+
+    /* Results display */
+    .scorecard-results { display: none; }
+    .scorecard-results.active { display: block; }
+
+    .score-circle {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid var(--accent);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 24px;
+    }
+
+    .score-number {
+      font-family: var(--mono);
+      font-size: 48px;
+      font-weight: 700;
+      color: var(--accent);
+      line-height: 1;
+    }
+
+    .score-grade {
+      font-size: 14px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .score-title {
+      font-size: 22px;
+      color: #fff;
+      font-weight: 600;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .score-description {
+      font-size: 15px;
+      color: var(--text-dim);
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .category-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .category-name {
+      font-size: 13px;
+      color: var(--text-dim);
+      width: 160px;
+      flex-shrink: 0;
+    }
+
+    .category-track {
+      flex: 1;
+      height: 8px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .category-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.8s ease;
+    }
+
+    .category-score {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text-muted);
+      width: 36px;
+      text-align: right;
+    }
+
+    .action-items {
+      margin-top: 32px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+    }
+
+    .action-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .action-item:last-child { border-bottom: none; }
+
+    .action-priority {
+      font-family: var(--mono);
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+      height: fit-content;
+      margin-top: 2px;
+    }
+
+    .priority-critical { background: rgba(248,113,113,0.15); color: var(--red); }
+    .priority-high { background: rgba(251,191,36,0.15); color: var(--yellow); }
+
+
+    .action-text {
+      font-size: 14px;
+      color: var(--text-dim);
+      line-height: 1.5;
+    }
+
+    .action-text strong { color: #fff; }
+
+    /* PRICING */
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 48px;
+    }
+
+    .pricing-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 40px;
+      transition: all 0.3s;
+    }
+
+    .pricing-card.featured {
+      border-color: var(--accent);
+      position: relative;
+    }
+
+    .pricing-card.featured::before {
+      content: 'Recommended';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--accent);
+      color: var(--bg);
+      padding: 4px 16px;
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .pricing-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+    }
+
+    .pricing-name {
+      font-size: 20px;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .pricing-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .pricing-price {
+      font-family: var(--mono);
+      font-size: 36px;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .pricing-price span {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-weight: 400;
+    }
+
+    .pricing-note {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+    }
+
+    .pricing-features {
+      list-style: none;
+      margin-bottom: 32px;
+    }
+
+    .pricing-features li {
+      font-size: 14px;
+      color: var(--text-dim);
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+    }
+
+    .pricing-features li:last-child { border-bottom: none; }
+
+    .pricing-features .check {
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .pricing-cta {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 14px;
+      border-radius: 8px;
+      font-size: 15px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .pricing-cta.primary {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .pricing-cta.secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid var(--border-accent);
+    }
+
+    .pricing-cta:hover { opacity: 0.9; transform: translateY(-1px); }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 700px;
+      margin: 48px auto 0;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      font-size: 16px;
+      color: #fff;
+      font-weight: 500;
+      font-family: var(--sans);
+      text-align: left;
+    }
+
+    .faq-question:hover { color: var(--accent); }
+
+    .faq-arrow {
+      font-size: 20px;
+      color: var(--text-muted);
+      transition: transform 0.3s;
+    }
+
+    .faq-item.open .faq-arrow { transform: rotate(45deg); }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 300px;
+      padding-bottom: 20px;
+    }
+
+    .faq-answer p {
+      font-size: 15px;
+      color: var(--text-dim);
+      line-height: 1.7;
+    }
+
+    /* BOTTOM CTA */
+    .bottom-cta {
+      text-align: center;
+      padding: 100px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .bottom-cta h2 {
+      font-family: var(--serif);
+      font-size: clamp(32px, 4vw, 48px);
+      color: #fff;
+      margin-bottom: 16px;
+    }
+
+    .bottom-cta p {
+      font-size: 17px;
+      color: var(--text-dim);
+      margin-bottom: 32px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* FOOTER */
+    footer {
+      padding: 40px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .footer-right {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-right a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.2s;
+    }
+
+    .footer-right a:hover { color: var(--accent); }
+
+    /* ANIMATIONS */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: all 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 12px 20px; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        padding: 20px;
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-links.open a {
+        padding: 12px 0;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+      }
+      .mobile-menu { display: block; }
+      .hero { padding: 120px 0 60px; }
+      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .problem-grid { grid-template-columns: 1fr; }
+      .step { grid-template-columns: 1fr; }
+      .step-num { font-size: 24px; }
+      .results-stats { grid-template-columns: 1fr; gap: 24px; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .qualifier-grid { grid-template-columns: 1fr; }
+      .scorecard-container { padding: 28px; }
+      .category-name { width: 100px; font-size: 11px; }
+      .logo-row { gap: 28px; }
+      .logo-item { font-size: 14px; }
+      footer { flex-direction: column; gap: 16px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- NAV -->
+  <nav aria-label="Main navigation">
+    <a href="#" class="nav-logo">GTMiQ</a>
+    <div class="nav-links" id="navLinks" role="menubar">
+      <a href="#results">Results</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#scorecard">Scorecard</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer" class="nav-cta">Book Free Audit</a>
+    </div>
+    <button type="button" class="mobile-menu" onclick="toggleMobileMenu()" aria-label="Toggle navigation menu" aria-expanded="false" id="mobileMenuBtn">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main id="main-content">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-badge"><span class="pulse"></span> Now taking Q2 2026 clients</div>
+      <h1>Your Product Works.<br>Your <em>Pipeline</em> Doesn't.</h1>
+      <p class="subline">You're the founder closing every deal yourself. Outbound is either nonexistent or a mess of random DMs nobody opens. I build the system that fixes that — in 4 weeks.</p>
+      <div class="hero-ctas">
+        <a href="#scorecard" class="btn-primary">Take the Pipeline Scorecard</a>
+        <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer" class="btn-secondary">Book a Free Audit</a>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-num">8-15%</div>
+          <div class="stat-label">Reply Rate</div>
+          <div class="stat-context">Industry avg: 1-5%</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">72</div>
+          <div class="stat-label">Leads / Session</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">4 wks</div>
+          <div class="stat-label">Sprint Delivery</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">300+</div>
+          <div class="stat-label">Startups Evaluated</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL PROOF -->
+  <div class="social-proof fade-up">
+    <div class="container">
+      <div class="social-proof-label">Built pipeline systems at</div>
+      <div class="logo-row">
+        <span class="logo-item">MasterBlox</span>
+        <span class="logo-item">Seedify</span>
+        <span class="logo-item">Bitget</span>
+        <span class="logo-item">Hacken</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROBLEM -->
+  <section id="problem">
+    <div class="container">
+      <div class="section-label fade-up">The Problem</div>
+      <h2 class="section-title fade-up">You're the Entire Sales Team</h2>
+      <p class="section-subtitle fade-up">Most Seed to Series A founders I talk to are stuck in the same loop.</p>
+
+      <div class="problem-grid">
+        <div class="problem-card bad fade-up">
+          <h3>No Pipeline System</h3>
+          <p>You're closing deals yourself between product calls. Outbound is random DMs at midnight. Referrals are your only real channel — and they don't scale.</p>
+        </div>
+        <div class="problem-card bad fade-up">
+          <h3>The &euro;120K Gamble</h3>
+          <p>You know you need a sales hire, but a full-time GTM person at this stage is a &euro;120K/yr bet with bad odds. 70% of early GTM hires fail within 6 months.</p>
+        </div>
+        <div class="problem-card bad fade-up">
+          <h3>Generic Outbound = Ignored</h3>
+          <p>Every AI outreach tool promises "personalization at scale." The result? Messages that sound like everyone else's. Founders can smell template from a mile away.</p>
+        </div>
+        <div class="problem-card good fade-up">
+          <h3>What You Actually Need</h3>
+          <p>A system — not a person. ICP scoring, signal-based sequences, AI agents that research before they write. Built in 4 weeks. Documented for handoff. That's GTMiQ.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results">
+    <div class="container">
+      <div class="section-label fade-up">Proof</div>
+      <h2 class="section-title fade-up">Built and Proven in a Bear Market</h2>
+      <p class="section-subtitle fade-up">I built GTMiQ in Web3 — the hardest environment to get anyone to reply to anything. These are real numbers.</p>
+
+      <div class="results-box fade-up">
+        <div class="results-stats">
+          <div>
+            <div class="result-num">8-15%</div>
+            <div class="result-label">Cold Reply Rate</div>
+            <div class="result-context">Industry avg: 1-5%</div>
+          </div>
+          <div>
+            <div class="result-num">72</div>
+            <div class="result-label">Scored Leads / Session</div>
+          </div>
+          <div>
+            <div class="result-num">300+</div>
+            <div class="result-label">Startups Evaluated</div>
+          </div>
+        </div>
+        <p class="results-context">"The response rate? 3x what I was getting manually. Not because the AI wrote magic messages — because the system forced thoroughness. When your research is deep, your outreach feels human."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how-it-works">
+    <div class="container">
+      <div class="section-label fade-up">How It Works</div>
+      <h2 class="section-title fade-up">4 Weeks. Working Pipeline. Handoff Ready.</h2>
+      <p class="section-subtitle fade-up">I come in, build the system, document everything, and hand it over. Your team runs it without me.</p>
+
+      <div class="steps">
+        <div class="step fade-up">
+          <div class="step-num">01</div>
+          <div>
+            <h3>ICP Scoring Framework</h3>
+            <p>We define who's actually worth talking to. AI-powered qualification that scores prospects 0-100 based on real signals — funding stage, growth urgency, team size, tech stack fit. Anything below threshold gets killed. No exceptions.</p>
+            <span class="step-tag">Week 1</span>
+          </div>
+        </div>
+        <div class="step fade-up">
+          <div class="step-num">02</div>
+          <div>
+            <h3>Sales Automation Infrastructure</h3>
+            <p>n8n workflows + AI agents (Claude / open-source LLMs) that score, research, and draft outreach without manual input. Not a tool stack you babysit — an engine that runs your pipeline while you focus on closing.</p>
+            <span class="step-tag">Week 2</span>
+          </div>
+        </div>
+        <div class="step fade-up">
+          <div class="step-num">03</div>
+          <div>
+            <h3>Signal-Based Outreach Sequences</h3>
+            <p>Every message references real data about each prospect — their recent funding, hiring patterns, product launches, competitive moves. The research happens before the writing. That's why replies come back.</p>
+            <span class="step-tag">Week 3</span>
+          </div>
+        </div>
+        <div class="step fade-up">
+          <div class="step-num">04</div>
+          <div>
+            <h3>Documented Playbook + Handoff</h3>
+            <p>ICP criteria, sequence templates, scoring logic, escalation rules, automation workflows — all documented. Your team runs this without me. I'm building a system, not a dependency.</p>
+            <span class="step-tag">Week 4</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO THIS IS FOR -->
+  <section id="qualifier">
+    <div class="container">
+      <div class="section-label fade-up" style="text-align:center;">Who This Is For</div>
+      <h2 class="section-title fade-up" style="text-align:center;">Right Fit, Wrong Fit</h2>
+      <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">GTMiQ isn't for everyone. Here's how to know if this makes sense for you.</p>
+
+      <div class="qualifier-grid">
+        <div class="qualifier-col yes fade-up">
+          <h3><span>&#10003;</span> Good Fit</h3>
+          <ul>
+            <li><span class="qi">&#10003;</span> AI or Web3 startup, Seed to Series A</li>
+            <li><span class="qi">&#10003;</span> You have a working product but no outbound system</li>
+            <li><span class="qi">&#10003;</span> Founder is doing all the selling</li>
+            <li><span class="qi">&#10003;</span> You want a documented system your team can run</li>
+            <li><span class="qi">&#10003;</span> You can invest &euro;3K+ to build pipeline infrastructure</li>
+          </ul>
+        </div>
+        <div class="qualifier-col no fade-up">
+          <h3><span>&#10007;</span> Not a Fit</h3>
+          <ul>
+            <li><span class="qi">&#10007;</span> You want a magic tool, not a system</li>
+            <li><span class="qi">&#10007;</span> You're pre-product with no customers yet</li>
+            <li><span class="qi">&#10007;</span> You expect overnight results without any founder input</li>
+            <li><span class="qi">&#10007;</span> Your budget is under &euro;2K</li>
+            <li><span class="qi">&#10007;</span> You just want "more emails sent faster"</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCORECARD -->
+  <section id="scorecard">
+    <div class="container">
+      <div class="section-label fade-up" style="text-align:center;">Free Assessment</div>
+      <h2 class="section-title fade-up" style="text-align:center;">Pipeline Readiness Scorecard</h2>
+      <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">10 questions. 2 minutes. Find out if your outbound is working — or just busy.</p>
+
+      <div class="scorecard-container fade-up" id="scorecardBox">
+        <!-- Progress dots -->
+        <div class="scorecard-progress" id="progressDots"></div>
+
+        <!-- Question display -->
+        <div id="questionDisplay">
+          <div class="scorecard-question" id="qText"></div>
+          <div class="scorecard-context" id="qContext"></div>
+          <div class="scorecard-options" id="qOptions"></div>
+          <div class="scorecard-nav">
+            <button type="button" class="scorecard-btn back" id="backBtn" onclick="prevQuestion()">Back</button>
+            <button type="button" class="scorecard-btn next" id="nextBtn" onclick="nextQuestion()" disabled>Next</button>
+          </div>
+        </div>
+
+        <!-- Email gate -->
+        <div class="email-gate" id="emailGate">
+          <h3 style="font-size:22px; color:#fff; margin-bottom:8px;">Your results are ready</h3>
+          <p style="font-size:15px; color:var(--text-dim); margin-bottom:24px;">Enter your email to see your full pipeline scorecard with personalized action plan.</p>
+          <label for="gateEmail" class="sr-only">Email address</label>
+          <input type="email" id="gateEmail" placeholder="your@email.com" aria-label="Email address" required>
+          <div id="emailError" style="color:var(--red); font-size:13px; margin-bottom:8px; display:none;">Please enter your email to see results.</div>
+          <label for="gateCompany" class="sr-only">Company name</label>
+          <input type="text" id="gateCompany" placeholder="Company name" aria-label="Company name">
+          <button type="button" class="btn-primary" style="width:100%; margin-top:8px;" onclick="submitGate()">See My Results</button>
+        </div>
+
+        <!-- Results -->
+        <div class="scorecard-results" id="resultsDisplay">
+          <div class="score-circle">
+            <div class="score-number" id="finalScore">0</div>
+            <div class="score-grade" id="finalGrade"></div>
+          </div>
+          <div class="score-title" id="scoreTitle"></div>
+          <div class="score-description" id="scoreDesc"></div>
+
+          <div id="categoryBars"></div>
+
+          <div class="action-items" id="actionItems">
+            <h3 style="font-size:16px; color:#fff; margin-bottom:16px;">Your Action Plan</h3>
+          </div>
+
+          <div style="text-align:center; margin-top:32px;">
+            <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer" class="btn-primary">Book a Free Audit — Let's Fix This</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section id="pricing">
+    <div class="container">
+      <div class="section-label fade-up" style="text-align:center;">Pricing</div>
+      <h2 class="section-title fade-up" style="text-align:center;">Cheaper Than a Bad Hire</h2>
+      <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">A fraction of what a GTM hire costs. And this one actually works in 4 weeks.</p>
+
+      <div class="pricing-grid">
+        <div class="pricing-card featured fade-up">
+          <div class="pricing-name">GTMiQ Sprint</div>
+          <div class="pricing-desc">Full outbound engine, built in 4 weeks</div>
+          <div class="pricing-price">From &euro;3K <span>one-time</span></div>
+          <div class="pricing-note">Scoped on a call based on your stage and complexity</div>
+          <ul class="pricing-features">
+            <li><span class="check">&#10003;</span> ICP scoring framework</li>
+            <li><span class="check">&#10003;</span> Sales automation infrastructure (n8n + AI agents)</li>
+            <li><span class="check">&#10003;</span> Signal-based outreach sequences</li>
+            <li><span class="check">&#10003;</span> Documented playbook for handoff</li>
+            <li><span class="check">&#10003;</span> 4-week delivery</li>
+          </ul>
+          <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer" class="pricing-cta primary">Book a Call — Scope Your Sprint</a>
+        </div>
+
+        <div class="pricing-card fade-up">
+          <div class="pricing-name">GTMiQ Retainer</div>
+          <div class="pricing-desc">Ongoing optimization after the sprint</div>
+          <div class="pricing-price">From &euro;2K <span>/month</span></div>
+          <div class="pricing-note">Available after completing a Sprint engagement</div>
+          <ul class="pricing-features">
+            <li><span class="check">&#10003;</span> Monthly sequence optimization</li>
+            <li><span class="check">&#10003;</span> New lead list generation</li>
+            <li><span class="check">&#10003;</span> A/B testing and iteration</li>
+            <li><span class="check">&#10003;</span> Pipeline reporting</li>
+            <li><span class="check">&#10003;</span> Automation maintenance</li>
+          </ul>
+          <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer" class="pricing-cta secondary">Talk About Ongoing Support</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-label fade-up" style="text-align:center;">FAQ</div>
+      <h2 class="section-title fade-up" style="text-align:center;">Common Questions</h2>
+
+      <div class="faq-list">
+        <div class="faq-item fade-up">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            Is this only for AI and Web3 startups?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Those are my core markets — I have the deepest experience and proof points there. But the system works for any B2B startup that needs outbound. If you sell to businesses and you're Seed to Series A, let's talk.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            How is this different from Apollo, Clay, or Instantly?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Those are tools. GTMiQ is an operator who builds the system using the right tools for your situation. The gap in most startups isn't the software — it's the thinking behind it. I build the ICP logic, the automation workflows, and the sequences that make the tools actually work.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            What do I need to provide?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Access to your existing tools (if any), 2-3 hours of your time over 4 weeks for ICP workshops and feedback loops, and a clear idea of who your customer is. I handle everything else.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            Why not just hire an SDR?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>An SDR costs &euro;40-60K/yr, takes 3 months to ramp, and might not work out. I build a system in 4 weeks that runs with or without a person. When you do hire, they inherit a working playbook instead of starting from scratch.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            What happens after the 4-week sprint?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>You have a complete system with documentation. Your team can run it. If you want ongoing optimization, A/B testing, and new lead generation, the retainer option is available — but it's not required. The sprint is designed to be self-sustaining.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            I'm based in Europe. Does that matter?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>I'm based in Croatia and work primarily with European startups — London, Berlin, Paris, Amsterdam, Stockholm. Same timezone, EU invoicing (reverse-charge VAT), no complications. I also work with US companies if the fit is right.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOTTOM CTA -->
+  <section class="bottom-cta">
+    <div class="container">
+      <h2 class="fade-up">Ready to Build Your Pipeline?</h2>
+      <p class="fade-up">Take the scorecard first or book a call directly. Either way, you'll know exactly where you stand in 15 minutes.</p>
+      <div class="hero-ctas fade-up">
+        <a href="#scorecard" class="btn-primary">Take the Scorecard First</a>
+        <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer" class="btn-secondary">Book a Free Audit</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="footer-left">GTMiQ &middot; David Musta&#269; &middot; Powered by signal intelligence, not spray and pray.</div>
+    <div class="footer-right">
+      <a href="https://www.linkedin.com/in/david-mustac/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="mailto:dejvid814@gmail.com">Email</a>
+      <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer">Book a Call</a>
+    </div>
+  </footer>
+
+  <script>
+    // ============================================
+    // MOBILE NAV — close on link click
+    // ============================================
+    function toggleMobileMenu() {
+      const nav = document.getElementById('navLinks');
+      const btn = document.getElementById('mobileMenuBtn');
+      nav.classList.toggle('open');
+      const isOpen = nav.classList.contains('open');
+      btn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+    }
+
+    document.querySelectorAll('#navLinks a').forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('navLinks').classList.remove('open');
+      });
+    });
+
+    // ============================================
+    // SCORECARD — Updated for AI Startups
+    // ============================================
+    const questions = [
+      {
+        q: "How clearly is your ICP defined?",
+        context: "ICP = Ideal Customer Profile. Who you sell to and why.",
+        options: [
+          { text: "We sell to anyone who'll buy", score: 0 },
+          { text: "Rough idea \u2014 we know the industry but not the specific segment", score: 3 },
+          { text: "Defined by industry, company size, and stage", score: 6 },
+          { text: "Scored and documented with qualifying/disqualifying criteria", score: 10 }
+        ]
+      },
+      {
+        q: "How do you find new prospects today?",
+        context: "Signal-based prospecting vs. spray and pray.",
+        options: [
+          { text: "Founder does it manually / referrals only", score: 0 },
+          { text: "We buy lists or scrape databases", score: 3 },
+          { text: "We track some signals (funding, hiring, product launches)", score: 6 },
+          { text: "Automated signal detection triggers research before any outreach", score: 10 }
+        ]
+      },
+      {
+        q: "Do you score or prioritize leads before reaching out?",
+        context: "Not all leads deserve a message.",
+        options: [
+          { text: "No \u2014 we reach out to everyone on the list", score: 0 },
+          { text: "Gut feeling / founder intuition", score: 3 },
+          { text: "Basic criteria (stage, size) but not scored", score: 6 },
+          { text: "Automated scoring system with hard cutoffs \u2014 bad leads get killed", score: 10 }
+        ]
+      },
+      {
+        q: "How personalized is your outreach?",
+        context: "Does your message make the recipient wonder how you know what you know?",
+        options: [
+          { text: "Templates with {first_name} merge fields", score: 0 },
+          { text: "We mention their company name and industry", score: 3 },
+          { text: "We reference specific details (funding round, recent hire, product feature)", score: 6 },
+          { text: "AI-researched outreach that references real-time signals unique to each prospect", score: 10 }
+        ]
+      },
+      {
+        q: "What are your cold outreach reply rates?",
+        context: "Industry average is 1-5%. Above 8% means your system is working.",
+        options: [
+          { text: "No idea / we don't track", score: 0 },
+          { text: "Under 3%", score: 3 },
+          { text: "3-8%", score: 6 },
+          { text: "Above 8% consistently", score: 10 }
+        ]
+      },
+      {
+        q: "How much of your pipeline does the founder personally generate?",
+        context: "Founder-led sales is a bottleneck, not a strategy.",
+        options: [
+          { text: "100% \u2014 I am the pipeline", score: 0 },
+          { text: "Mostly me with some referrals", score: 3 },
+          { text: "Split between me and one other channel", score: 6 },
+          { text: "System generates pipeline, I just close", score: 10 }
+        ]
+      },
+      {
+        q: "Do you have automated follow-up sequences?",
+        context: "Most deals need 3-7 touches. Manual follow-up dies at touch 2.",
+        options: [
+          { text: "No sequences \u2014 follow-up is ad hoc", score: 0 },
+          { text: "I set manual reminders", score: 3 },
+          { text: "Basic email drip but not signal-based", score: 6 },
+          { text: "Multi-channel sequences (LinkedIn + email) triggered by engagement signals", score: 10 }
+        ]
+      },
+      {
+        q: "What's your CRM situation?",
+        context: "Where do leads live? Can you see your pipeline at a glance?",
+        options: [
+          { text: "Spreadsheet / notes app / nothing", score: 0 },
+          { text: "CRM exists but rarely updated", score: 3 },
+          { text: "CRM is updated but not automated", score: 6 },
+          { text: "CRM auto-updated from outreach tools with pipeline visibility", score: 10 }
+        ]
+      },
+      {
+        q: "How do you track what competitors' prospects are doing?",
+        context: "Competitive intelligence feeds better targeting.",
+        options: [
+          { text: "We don't track competitor activity", score: 0 },
+          { text: "Occasional manual checks", score: 3 },
+          { text: "Alerts set up but not integrated into outreach", score: 6 },
+          { text: "Competitor signals feed directly into prospecting and messaging", score: 10 }
+        ]
+      },
+      {
+        q: "If you needed 50 qualified prospects tomorrow, could your system produce them?",
+        context: "This is the real test of pipeline readiness.",
+        options: [
+          { text: "No chance \u2014 I'd have to start from scratch", score: 0 },
+          { text: "I could pull a list but they wouldn't be qualified", score: 3 },
+          { text: "I could get 50 leads but personalization would take days", score: 6 },
+          { text: "Yes \u2014 scored, researched, and outreach-ready within a day", score: 10 }
+        ]
+      }
+    ];
+
+    const gradeMap = [
+      { min: 85, grade: "A", title: "Pipeline Machine", desc: "Your outbound is dialed in. You're ahead of 95% of startups at your stage. Consider optimizing, not rebuilding.", color: "#4ade80" },
+      { min: 70, grade: "B", title: "Strong Foundation", desc: "The bones are good. Some gaps in automation and signal detection. A sprint could take you from good to great.", color: "#4ade80" },
+      { min: 55, grade: "C", title: "Patchwork Pipeline", desc: "You have pieces working but no system connecting them. Leads fall through cracks. Automation would transform your output.", color: "#fbbf24" },
+      { min: 40, grade: "D", title: "Leaky Bucket", desc: "You're generating some activity but without scoring, signals, or sequences, most of it goes nowhere. Time to build the infrastructure.", color: "#f97316" },
+      { min: 0, grade: "F", title: "No Outbound System", desc: "You're running on founder hustle alone. This works until it doesn't \u2014 and it usually stops working right when you need pipeline most.", color: "#f87171" }
+    ];
+
+    const categories = [
+      { name: "ICP Clarity", indices: [0] },
+      { name: "Prospecting", indices: [1] },
+      { name: "Lead Scoring", indices: [2] },
+      { name: "Personalization", indices: [3] },
+      { name: "Reply Rates", indices: [4] },
+      { name: "Founder Dependency", indices: [5] },
+      { name: "Follow-Up", indices: [6] },
+      { name: "CRM", indices: [7] },
+      { name: "Competitive Intel", indices: [8] },
+      { name: "Pipeline Capacity", indices: [9] }
+    ];
+
+    let currentQ = 0;
+    let answers = new Array(questions.length).fill(null);
+    let autoAdvanceTimer = null;
+
+    function initScorecard() {
+      const dots = document.getElementById('progressDots');
+      dots.innerHTML = questions.map((_, i) => `<div class="progress-dot" id="dot${i}"></div>`).join('');
+      renderQuestion();
+    }
+
+    function renderQuestion() {
+      const q = questions[currentQ];
+      document.getElementById('qText').textContent = q.q;
+      document.getElementById('qContext').textContent = q.context;
+
+      const opts = document.getElementById('qOptions');
+      opts.innerHTML = q.options.map((o, i) =>
+        `<button type="button" class="scorecard-option ${answers[currentQ] === i ? 'selected' : ''}" onclick="selectOption(${i})">${o.text}</button>`
+      ).join('');
+
+      document.getElementById('backBtn').style.display = currentQ === 0 ? 'none' : 'block';
+      document.getElementById('nextBtn').disabled = answers[currentQ] === null;
+      document.getElementById('nextBtn').textContent = currentQ === questions.length - 1 ? 'See Results' : 'Next';
+
+      questions.forEach((_, i) => {
+        const dot = document.getElementById(`dot${i}`);
+        dot.className = 'progress-dot';
+        if (i === currentQ) dot.classList.add('active');
+        else if (answers[i] !== null) dot.classList.add('done');
+      });
+    }
+
+    function selectOption(idx) {
+      answers[currentQ] = idx;
+      renderQuestion();
+
+      // Auto-advance after 400ms
+      if (autoAdvanceTimer) clearTimeout(autoAdvanceTimer);
+      autoAdvanceTimer = setTimeout(() => {
+        if (answers[currentQ] !== null) {
+          nextQuestion();
+        }
+      }, 400);
+    }
+
+    function nextQuestion() {
+      if (autoAdvanceTimer) clearTimeout(autoAdvanceTimer);
+      if (answers[currentQ] === null) return;
+      if (currentQ < questions.length - 1) {
+        currentQ++;
+        renderQuestion();
+      } else {
+        showEmailGate();
+      }
+    }
+
+    function prevQuestion() {
+      if (autoAdvanceTimer) clearTimeout(autoAdvanceTimer);
+      if (currentQ > 0) {
+        currentQ--;
+        renderQuestion();
+      }
+    }
+
+    function showEmailGate() {
+      document.getElementById('questionDisplay').style.display = 'none';
+      document.getElementById('emailGate').classList.add('active');
+    }
+
+    function submitGate() {
+      const email = document.getElementById('gateEmail').value;
+      const company = document.getElementById('gateCompany').value;
+      const errorEl = document.getElementById('emailError');
+      if (!email) {
+        errorEl.style.display = 'block';
+        document.getElementById('gateEmail').focus();
+        return;
+      }
+      errorEl.style.display = 'none';
+
+      const total = answers.reduce((sum, a, i) => sum + (a !== null ? questions[i].options[a].score : 0), 0);
+      const grade = gradeMap.find(g => total >= g.min);
+
+      // Send to FormSubmit
+      const categoryScores = categories.map(c => {
+        const catTotal = c.indices.reduce((s, i) => s + (answers[i] !== null ? questions[i].options[answers[i]].score : 0), 0);
+        const catMax = c.indices.length * 10;
+        return { name: c.name, score: catTotal, max: catMax, pct: Math.round((catTotal / catMax) * 100) };
+      });
+
+      const criticalGaps = categoryScores.filter(c => c.pct < 40).length;
+
+      // Submit data
+      try {
+        fetch('https://formsubmit.co/ajax/dejvid814@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: email,
+            company: company,
+            score: total,
+            grade: grade.grade + ' - ' + grade.title,
+            criticalGaps: criticalGaps,
+            categories: categoryScores.map(c => c.name + ': ' + c.pct + '%').join(', '),
+            _subject: 'GTMiQ Scorecard: ' + company + ' (' + grade.grade + ' - ' + total + '/100)'
+          })
+        });
+      } catch (e) {
+        console.warn('Scorecard submission failed:', e);
+      }
+
+      // Show results
+      document.getElementById('emailGate').classList.remove('active');
+      document.getElementById('resultsDisplay').classList.add('active');
+
+      document.getElementById('finalScore').textContent = total;
+      document.getElementById('finalGrade').textContent = grade.grade;
+      document.getElementById('scoreTitle').textContent = grade.title;
+      document.getElementById('scoreDesc').textContent = grade.desc;
+
+      const barsEl = document.getElementById('categoryBars');
+      barsEl.innerHTML = categoryScores.map(c => {
+        const color = c.pct >= 70 ? 'var(--accent)' : c.pct >= 40 ? 'var(--yellow)' : 'var(--red)';
+        return `<div class="category-bar">
+          <div class="category-name">${c.name}</div>
+          <div class="category-track"><div class="category-fill" style="width:${c.pct}%; background:${color}"></div></div>
+          <div class="category-score">${c.pct}%</div>
+        </div>`;
+      }).join('');
+
+      // Action items
+      const actions = document.getElementById('actionItems');
+      const criticals = categoryScores.filter(c => c.pct < 40);
+      const highs = categoryScores.filter(c => c.pct >= 40 && c.pct < 70);
+
+      let actionsHtml = '<h3 style="font-size:16px; color:#fff; margin-bottom:16px;">Your Action Plan</h3>';
+      criticals.forEach(c => {
+        actionsHtml += `<div class="action-item"><span class="action-priority priority-critical">Critical</span><div class="action-text"><strong>${c.name}</strong> \u2014 This is a major gap. ${getActionText(c.name)}</div></div>`;
+      });
+      highs.forEach(c => {
+        actionsHtml += `<div class="action-item"><span class="action-priority priority-high">High</span><div class="action-text"><strong>${c.name}</strong> \u2014 ${getActionText(c.name)}</div></div>`;
+      });
+      actions.innerHTML = actionsHtml;
+    }
+
+    function getActionText(name) {
+      const map = {
+        'ICP Clarity': 'Without a scored ICP, every outreach decision is a guess. Build a qualification framework with hard cutoffs.',
+        'Prospecting': 'Move from manual searching to signal-based discovery. Funding rounds, hiring patterns, and product launches should trigger your pipeline.',
+        'Lead Scoring': 'Stop treating all leads equally. Automated scoring kills bad leads before you waste time writing messages.',
+        'Personalization': 'Template-based outreach gets template-level results. AI research before writing is the difference between 2% and 15% reply rates.',
+        'Reply Rates': 'Low reply rates mean your targeting or messaging is off. Usually both. Fix the research layer first.',
+        'Founder Dependency': 'If you are the pipeline, you have a scaling problem. Build a system that generates opportunities without you.',
+        'Follow-Up': 'Most deals close after touch 3-7. Without automated sequences, you\'re leaving money on the table at touch 1.',
+        'CRM': 'A CRM nobody updates is worse than no CRM. Automate data entry from your outreach tools.',
+        'Competitive Intel': 'Your competitors\' moves are prospecting signals. When they raise, launch, or hire \u2014 their customers and prospects are in play.',
+        'Pipeline Capacity': 'If you can\'t produce 50 qualified prospects on demand, your pipeline depends on luck. That\'s not a system.'
+      };
+      return map[name] || 'This area needs attention.';
+    }
+
+    // ============================================
+    // FAQ TOGGLE
+    // ============================================
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+      });
+      if (!wasOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    // ============================================
+    // SCROLL ANIMATIONS
+    // ============================================
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+      initScorecard();
+    });
+  </script>
+
+</body>
+</html>
