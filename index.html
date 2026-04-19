@@ -243,9 +243,12 @@
   }
   </script>
 
-  <!-- Plausible Analytics (with custom events + outbound link tracking) -->
-  <script defer data-domain="gtm-david.vercel.app" src="https://plausible.io/js/script.outbound-links.tagged-events.js"></script>
-  <script>window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>
+  <!-- Plausible Analytics -->
+  <script async src="https://plausible.io/js/pa-YascWSSW3QXGQpANHElEX.js"></script>
+  <script>
+    window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
+    plausible.init({ outboundLinks: true })
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
   <style>
