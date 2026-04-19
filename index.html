@@ -64,9 +64,11 @@
       "addressCountry": "HR"
     },
     "areaServed": "Worldwide",
+    "email": "david@ascendia.ceo",
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "sales",
+      "email": "david@ascendia.ceo",
       "url": "https://cal.com/david-mustac/gtmiq"
     }
   }
@@ -2059,6 +2061,7 @@
         </div>
 
         <div class="about-cta">
+          <a href="mailto:david@ascendia.ceo" class="btn-secondary">Email &rarr;</a>
           <a href="https://www.linkedin.com/in/david-mustac/" target="_blank" rel="noopener noreferrer" class="btn-secondary">LinkedIn &rarr;</a>
           <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer" class="btn-primary">Book a 15-min call</a>
         </div>
@@ -2180,7 +2183,7 @@
     </div>
     <div class="footer-right">
       <a href="https://www.linkedin.com/in/david-mustac/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:dejvid814@gmail.com">Email</a>
+      <a href="mailto:david@ascendia.ceo">david@ascendia.ceo</a>
       <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer">Book a Call</a>
     </div>
   </footer>
@@ -2520,7 +2523,7 @@
       var urlParams = new URLSearchParams(window.location.search);
 
       // 1. FormSubmit — email notification to David + auto-response to user
-      fetch('https://formsubmit.co/ajax/dejvid814@gmail.com', {
+      fetch('https://formsubmit.co/ajax/david@ascendia.ceo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
         body: JSON.stringify({
@@ -2532,7 +2535,7 @@
           criticalGaps: criticalGaps,
           categories: categoryScores.map(c => c.name + ': ' + c.pct + '%').join(', '),
           _subject: 'GTMiQ Scorecard: ' + (company || email) + ' (' + grade.grade + ' - ' + total + '/100)',
-          _autoresponse: "Hi,\n\nYour Pipeline Readiness Scorecard came through. Score: " + total + "/100 (Grade " + grade.grade + " - " + grade.title + ").\n\nYou saw the breakdown on the results page. I'll follow up within 24 hours with 2-3 specific observations on where your biggest gaps are and what would move the needle fastest.\n\nIf you want to talk sooner, book a 15-min slot: https://cal.com/david-mustac/gtmiq\n\nNo pitch, just a conversation about what you scored and what a fix would look like.\n\nDavid\n--\nDavid Mustac | GTMiQ\nhttps://gtm-david.vercel.app\nhttps://www.linkedin.com/in/david-mustac/"
+          _autoresponse: "Hi,\n\nYour Pipeline Readiness Scorecard came through. Score: " + total + "/100 (Grade " + grade.grade + " - " + grade.title + ").\n\nYou saw the breakdown on the results page. I'll follow up within 24 hours with 2-3 specific observations on where your biggest gaps are and what would move the needle fastest.\n\nIf you want to talk sooner, book a 15-min slot: https://cal.com/david-mustac/gtmiq\nOr just reply to this email.\n\nNo pitch, just a conversation about what you scored and what a fix would look like.\n\nDavid\n--\nDavid Mustac | GTMiQ\nhttps://gtm-david.vercel.app\ndavid@ascendia.ceo\nhttps://www.linkedin.com/in/david-mustac/"
         })
       }).then(r => r.json()).then(data => {
         if (data.success === 'false' || data.success === false) {
