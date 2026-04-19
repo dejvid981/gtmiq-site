@@ -185,6 +185,14 @@
       },
       {
         "@type": "Question",
+        "name": "Why would I choose you over a sales coach or fractional CRO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "A sales coach optimizes how your existing team sells. A fractional CRO runs a team you already have. Both assume the pipeline exists. GTMiQ builds the pipeline infrastructure first — what goes into the top of your funnel, how leads get scored, which messages go out. Coach and CRO make sense once that system is running."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "What do I need to provide?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -533,6 +541,16 @@
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.3; }
+    }
+
+    /* Respect reduced motion preference (accessibility) */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
     }
 
     .hero h1 {
@@ -1780,7 +1798,7 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <div class="hero-badge"><span class="pulse"></span> Now taking Q2 2026 clients</div>
+      <div class="hero-badge"><span class="pulse"></span> Taking May Pilot bookings</div>
       <h1>Your Product Works.<br>Your <em>Pipeline</em> Doesn't.</h1>
       <p class="subline">You've raised, your product works, and now you're scaling sales into new regions where nobody knows you. I build the signal-based outbound engine that makes every message reference a real fact about the prospect.</p>
       <div class="hero-ctas">
@@ -1868,7 +1886,7 @@
     <div class="container">
       <div class="section-label fade-up">Proof</div>
       <h2 class="section-title fade-up">Built Where Cold Outreach Is Hardest</h2>
-      <p class="section-subtitle fade-up">I built GTMiQ on Web3 campaigns first — the hardest environment to get anyone to reply to anything. Now applied to B2B SaaS founders scaling sales into new regions.</p>
+      <p class="section-subtitle fade-up">I built GTMiQ in the hardest outbound environments first — Web3 campaigns where nobody replies to anything. Now applied to B2B SaaS founders scaling sales into new regions.</p>
 
       <div class="results-box fade-up">
         <div class="results-stats">
@@ -2222,7 +2240,7 @@
 
       <div class="about-card fade-up">
         <div class="about-intro">
-          <p>I run GTMiQ out of Zagreb. Two years in growth and sales automation &mdash; started on Web3 campaigns where nobody replies to anything, now applied to B2B SaaS founders who are trying to scale sales into markets where they're unknown.</p>
+          <p>I run GTMiQ out of Zagreb. Two years shipping signal-based outbound systems &mdash; started on Web3 campaigns where nobody replies to anything, now applied to B2B SaaS founders trying to scale sales into markets where they're unknown.</p>
           <p>The thesis: outbound is not a spray-and-pray volume problem. It's a research problem. Every message should reference a real fact about the prospect. If your system can't do that at scale, you shouldn't be sending 1,000 emails a week.</p>
         </div>
 
@@ -2285,6 +2303,15 @@
           </button>
           <div class="faq-answer">
             <p>Those are tools. GTMiQ is an operator who builds the system using the right tools for your situation. The gap in most startups isn't the software — it's the thinking behind it. I build the ICP logic, the automation workflows, and the sequences that make the tools actually work.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            Why would I choose you over a sales coach or fractional CRO?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>A sales coach optimizes how your existing team sells. A fractional CRO runs a team you already have. Both assume the pipeline exists. GTMiQ builds the pipeline infrastructure first &mdash; what goes into the top of your funnel, how leads get scored, which messages go out. Coach + CRO make sense once that system is running.</p>
           </div>
         </div>
         <div class="faq-item fade-up">
