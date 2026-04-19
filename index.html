@@ -27,13 +27,11 @@
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "GTMiQ",
-    "legalName": "Ascendia, obrt za savjetovanje u vezi s računalima, vl. David Mustač",
+    "legalName": "Ascendia",
     "url": "https://gtm-david.vercel.app/",
     "logo": "https://gtm-david.vercel.app/og-image.png",
     "description": "Signal-based outbound engine for B2B SaaS scaling sales into new regions. Every message references a real fact about the prospect.",
     "foundingDate": "2024-09-30",
-    "taxID": "80498049786",
-    "vatID": "HR80498049786",
     "founder": {
       "@type": "Person",
       "name": "David Mustač",
@@ -1908,8 +1906,6 @@
             <div id="emailError" style="color:var(--red); font-size:13px; margin-bottom:8px; display:none;">Please enter your email to see results.</div>
             <label for="gateCompany" class="sr-only">Company name</label>
             <input type="text" id="gateCompany" placeholder="Company name (optional)" aria-label="Company name">
-            <label for="gatePhone" class="sr-only">Phone number</label>
-            <input type="tel" id="gatePhone" placeholder="Phone (optional \u2014 for faster follow-up)" aria-label="Phone number">
             <button type="button" class="btn-primary" style="width:100%; margin-top:8px;" onclick="submitGate()">Unlock Full Report</button>
           </div>
         </div>
@@ -2056,7 +2052,7 @@
           </div>
           <div class="about-fact">
             <div class="about-fact-label">Legal entity</div>
-            <div class="about-fact-value">Ascendia, obrt &middot; OIB 80498049786</div>
+            <div class="about-fact-value">Ascendia &middot; David Musta&#269;</div>
           </div>
         </div>
 
@@ -2179,7 +2175,7 @@
   <footer role="contentinfo">
     <div class="footer-left">
       <div>GTMiQ &middot; David Musta&#269; &middot; Powered by signal intelligence, not spray and pray.</div>
-      <div class="footer-legal">Ascendia, obrt za savjetovanje u vezi s ra&#269;unalima, vl. David Musta&#269; &middot; OIB 80498049786 &middot; Zagreb, HR</div>
+      <div class="footer-legal">Ascendia &middot; David Musta&#269; &middot; Zagreb, HR</div>
     </div>
     <div class="footer-right">
       <a href="https://www.linkedin.com/in/david-mustac/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
@@ -2498,7 +2494,7 @@
     function submitGate() {
       const email = document.getElementById('gateEmail').value;
       const company = document.getElementById('gateCompany').value;
-      const phone = document.getElementById('gatePhone') ? document.getElementById('gatePhone').value : '';
+      const phone = ''; // phone field removed from gate UI; kept var for backend compatibility
       const errorEl = document.getElementById('emailError');
       if (!email) {
         errorEl.style.display = 'block';
