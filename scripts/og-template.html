@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap');
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body { width: 1200px; height: 630px; overflow: hidden; }
+    body {
+      background: #0a0a0b;
+      color: #e4e4e7;
+      font-family: 'DM Sans', sans-serif;
+      padding: 70px 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+    /* Grid background */
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(74,222,128,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74,222,128,0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+    /* Glow */
+    body::after {
+      content: '';
+      position: absolute;
+      top: -200px; right: -200px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(74,222,128,0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+    .brand {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 24px;
+      font-weight: 700;
+      color: #4ade80;
+      letter-spacing: -0.5px;
+    }
+    .tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      color: #8a8a93;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      border: 1px solid rgba(74,222,128,0.3);
+      padding: 8px 16px;
+      border-radius: 100px;
+      background: rgba(74,222,128,0.08);
+    }
+    .tag::before {
+      content: '●';
+      color: #4ade80;
+      margin-right: 8px;
+      font-size: 10px;
+    }
+    h1 {
+      font-family: 'Instrument Serif', serif;
+      font-size: 104px;
+      font-weight: 400;
+      line-height: 1.0;
+      letter-spacing: -2px;
+      color: #ffffff;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 20px;
+    }
+    h1 em {
+      font-style: italic;
+      color: #4ade80;
+    }
+    .subline {
+      font-size: 24px;
+      color: #a1a1aa;
+      line-height: 1.4;
+      max-width: 900px;
+      position: relative;
+      z-index: 1;
+      margin-bottom: 20px;
+    }
+    .bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      position: relative;
+      z-index: 1;
+    }
+    .author {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 16px;
+      color: #a1a1aa;
+    }
+    .author strong { color: #e4e4e7; font-weight: 700; }
+    .stats {
+      display: flex;
+      gap: 40px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 14px;
+      color: #8a8a93;
+    }
+    .stat-num {
+      font-size: 24px;
+      color: #4ade80;
+      font-weight: 700;
+      display: block;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-row">
+    <div class="brand">GTMiQ</div>
+    <div class="tag">Signal-based outbound</div>
+  </div>
+
+  <div>
+    <h1>Your Product Works.<br>Your <em>Pipeline</em> Doesn't.</h1>
+    <div class="subline">Signal-based outbound engine for B2B SaaS scaling into new regions. Every message references a real fact about the prospect.</div>
+  </div>
+
+  <div class="bottom-row">
+    <div class="author">Built by <strong>David Mustač</strong> · gtm-david.vercel.app</div>
+    <div class="stats">
+      <div><span class="stat-num">10</span>Pilot days</div>
+      <div><span class="stat-num">€1,500</span>Starting</div>
+      <div><span class="stat-num">5–6</span>Week Build</div>
+    </div>
+  </div>
+</body>
+</html>

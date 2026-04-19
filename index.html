@@ -388,6 +388,106 @@
       padding: 0 24px;
     }
 
+    .container-wide {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* COMPARISON TABLE */
+    #comparison {
+      border-top: 1px solid var(--border);
+    }
+
+    .comparison-wrap {
+      overflow-x: auto;
+      margin-top: 48px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--bg-card);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 880px;
+    }
+
+    .comparison-table thead th {
+      padding: 22px 20px;
+      text-align: left;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .comparison-table thead th.comparison-col-us {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .comparison-table tbody td {
+      padding: 18px 20px;
+      font-size: 14px;
+      color: var(--text-dim);
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+      line-height: 1.5;
+    }
+
+    .comparison-table tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-row-label {
+      font-family: var(--mono);
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      min-width: 200px;
+      white-space: nowrap;
+    }
+
+    .comparison-cell-us {
+      color: #fff;
+      font-weight: 500;
+      background: var(--accent-dim);
+      border-left: 2px solid var(--accent);
+    }
+
+    .comparison-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 400;
+      margin-left: 4px;
+    }
+
+    .comparison-footer {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-top: 24px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    @media (max-width: 768px) {
+      .container-wide { padding: 0 16px; }
+      .comparison-wrap { border-radius: 12px; }
+      .comparison-table thead th,
+      .comparison-table tbody td { padding: 14px 14px; font-size: 13px; }
+      .comparison-row-label { font-size: 11px; }
+    }
+
     /* HERO */
     .hero {
       padding: 160px 0 100px;
@@ -1653,6 +1753,7 @@
       <a href="#how-it-works">How It Works</a>
       <a href="#scorecard">Scorecard</a>
       <a href="#pricing">Pricing</a>
+      <a href="#comparison">Vs.</a>
       <a href="#about">About</a>
       <a href="#faq">FAQ</a>
       <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer" class="nav-cta">Book 15-min Call</a>
@@ -2014,6 +2115,89 @@
           <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer" class="pricing-cta secondary">Talk Ongoing Support</a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- COMPARISON -->
+  <section id="comparison">
+    <div class="container-wide">
+      <div class="section-label fade-up" style="text-align:center;">Vs the alternatives</div>
+      <h2 class="section-title fade-up" style="text-align:center;">Not the same as hiring or tooling</h2>
+      <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">Different shape, different outcome. An SDR costs &euro;120K/yr. A tool subscription costs &euro;50-500/mo forever. GTMiQ builds you a system once and hands it over.</p>
+
+      <div class="comparison-wrap fade-up">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th class="comparison-row-label"></th>
+              <th class="comparison-col-us">GTMiQ</th>
+              <th>Hire SDR</th>
+              <th>Apollo alone</th>
+              <th>Lemlist / HeyReach</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="comparison-row-label">Upfront cost</td>
+              <td class="comparison-cell-us">&euro;1,500 once <span class="comparison-sub">(Pilot)</span></td>
+              <td>&euro;5&ndash;10K / mo</td>
+              <td>&euro;99&ndash;499 / mo</td>
+              <td>&euro;49&ndash;99 / mo</td>
+            </tr>
+            <tr>
+              <td class="comparison-row-label">Time to live pipeline</td>
+              <td class="comparison-cell-us">10 days</td>
+              <td>3 months ramp</td>
+              <td>Day 1 tool, 30+ days to real output</td>
+              <td>Day 1 tool, 30+ days to real output</td>
+            </tr>
+            <tr>
+              <td class="comparison-row-label">Signal research per prospect</td>
+              <td class="comparison-cell-us">Built into workflow</td>
+              <td>Manual, per rep</td>
+              <td>Manual, per rep</td>
+              <td>None &mdash; just sends</td>
+            </tr>
+            <tr>
+              <td class="comparison-row-label">Personalization depth</td>
+              <td class="comparison-cell-us">Handcrafted per prospect</td>
+              <td>Depends on the hire</td>
+              <td>Templates + merge fields</td>
+              <td>Templates + merge fields</td>
+            </tr>
+            <tr>
+              <td class="comparison-row-label">System ownership</td>
+              <td class="comparison-cell-us">You own documented playbook</td>
+              <td>Lives in the hire's head</td>
+              <td>You own tool setup</td>
+              <td>You own tool setup</td>
+            </tr>
+            <tr>
+              <td class="comparison-row-label">Integrates your stack</td>
+              <td class="comparison-cell-us">Apollo &middot; HubSpot &middot; HighLevel &middot; Attio &middot; any</td>
+              <td>Uses whatever you have</td>
+              <td>Standalone</td>
+              <td>Standalone</td>
+            </tr>
+            <tr>
+              <td class="comparison-row-label">When your best rep leaves</td>
+              <td class="comparison-cell-us">Playbook stays &mdash; next rep picks up in a week</td>
+              <td>Months of lost pipeline</td>
+              <td>Tool still runs &mdash; but nobody sets it up well</td>
+              <td>Tool still runs &mdash; same problem</td>
+            </tr>
+            <tr>
+              <td class="comparison-row-label">Realistic reply rate</td>
+              <td class="comparison-cell-us">6&ndash;10% target</td>
+              <td>2&ndash;5% typical</td>
+              <td>1&ndash;3% with template blasting</td>
+              <td>1&ndash;5% with template blasting</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="comparison-footer fade-up">GTMiQ isn't a replacement for any of these. It's the system behind them. Pair with Apollo or HubSpot, or run standalone. The methodology is the point &mdash; not the tool stack.</p>
     </div>
   </section>
 
