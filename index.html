@@ -2550,11 +2550,21 @@
     let autoAdvanceTimer = null;
     let scorecardStartTracked = false;
 
-    // Plausible event helper (safe no-op if Plausible not loaded)
+    // Analytics event helper — fires to both Plausible + Clarity (safe no-op if either not loaded)
     function plausibleEvent(name, props) {
       try {
         if (typeof plausible === 'function') {
           plausible(name, props ? { props: props } : undefined);
+        }
+      } catch (e) { /* silent */ }
+      try {
+        if (typeof clarity === 'function') {
+          clarity('event', name);
+          if (props) {
+            Object.keys(props).forEach(function (k) {
+              clarity('set', k, String(props[k]));
+            });
+          }
         }
       } catch (e) { /* silent */ }
     }
