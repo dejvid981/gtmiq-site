@@ -222,15 +222,6 @@
     plausible.init({ outboundLinks: true, api: '/api/event' })
   </script>
 
-  <!-- Microsoft Clarity (session replay + heatmaps) -->
-  <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "we3i6kuc0l");
-  </script>
-
   <!-- Vercel Web Analytics (Core Web Vitals + traffic) -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
@@ -2566,21 +2557,11 @@
     let autoAdvanceTimer = null;
     let scorecardStartTracked = false;
 
-    // Analytics event helper — fires to both Plausible + Clarity (safe no-op if either not loaded)
+    // Analytics event helper — fires to Plausible (safe no-op if not loaded)
     function plausibleEvent(name, props) {
       try {
         if (typeof plausible === 'function') {
           plausible(name, props ? { props: props } : undefined);
-        }
-      } catch (e) { /* silent */ }
-      try {
-        if (typeof clarity === 'function') {
-          clarity('event', name);
-          if (props) {
-            Object.keys(props).forEach(function (k) {
-              clarity('set', k, String(props[k]));
-            });
-          }
         }
       } catch (e) { /* silent */ }
     }
