@@ -1,5 +1,15 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/js/pa-m4otR3AHBPZuCDWAiodw2.js",
+      "destination": "https://plausible.io/js/pa-m4otR3AHBPZuCDWAiodw2.js"
+    },
+    {
+      "source": "/api/event",
+      "destination": "https://plausible.io/api/event"
+    }
+  ],
   "crons": [
     {
       "path": "/api/cron/nurture",

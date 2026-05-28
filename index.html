@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Signal-Based Outbound for B2B SaaS | GTMiQ by David Musta&#269;</title>
-  <meta name="description" content="Signal-based outbound engine for B2B SaaS scaling sales into new regions. Every message references a real fact about the prospect. 10-day Pilot Sprint. Built by David Musta&#269;.">
+  <meta name="description" content="Signal-based outbound engine for B2B SaaS scaling sales into new regions. Every message references a real fact about the prospect. Build & Handoff or Build & Run — David Musta&#269; runs it for you.">
   <!-- OG Meta Tags -->
   <meta property="og:title" content="GTMiQ — Your Product Works. Your Pipeline Doesn't.">
   <meta property="og:description" content="Signal-based outbound engine for B2B SaaS scaling sales into new regions. Every message references a real fact about the prospect. Not spray-and-pray.">
@@ -107,18 +107,18 @@
       "itemListElement": [
         {
           "@type": "Offer",
-          "name": "Pilot Sprint",
-          "description": "Full methodology on 50 firms for 1 salesperson. Signal detection, lead scoring, personalized outreach — proven before the full Build. 10 working days. Pilot fee credited toward the Build if you continue."
+          "name": "Build & Handoff",
+          "description": "Full outbound engine — signal detection across your full ICP, lead scoring, outreach sequences, CRM integration, documented playbook with Loom training. Built in ~4 weeks. From €1,500 one-time. Your team runs it after handoff."
         },
         {
           "@type": "Offer",
-          "name": "Done-For-You Build",
-          "description": "Complete outbound engine — signal detection across your full ICP, lead scoring, outreach sequences, CRM integration, documented playbook with Loom training. 5-6 weeks. Custom scope pricing."
+          "name": "Build & Run",
+          "description": "Build phase ~4 weeks, then David runs the system for 2 more months — sends messages, qualifies replies, books meetings into your calendar. Guarantee: 5+ booked meetings or qualified signals within the first 30 days of execution, or partial refund. From €3,500/mo, 3-month minimum (€10,500 minimum total)."
         },
         {
           "@type": "Offer",
           "name": "Monthly Retainer",
-          "description": "Ongoing weekly optimization after the Build. Sequence tuning, new lead lists, reply-rate calibration. No contract lock-in. Monthly, cancel anytime."
+          "description": "Ongoing weekly optimization after a Build. Sequence tuning, new lead lists, reply-rate calibration. From €1,500/mo. No contract lock-in. Cancel anytime."
         }
       ]
     }
@@ -160,7 +160,7 @@
         "name": "What do I need to provide?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Access to your existing tools (if any), 2-3 hours of your time over 5-6 weeks for ICP workshops and feedback loops, and a clear idea of who your customer is. I handle everything else."
+          "text": "Access to your existing tools (if any), 2-3 hours of your time over ~4 weeks for ICP workshops and feedback loops, and a clear idea of who your customer is. I handle everything else."
         }
       },
       {
@@ -168,7 +168,7 @@
         "name": "Why not just hire an SDR?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "An SDR costs €40-60K/yr, takes 3 months to ramp, and might not work out. I build a system in 5-6 weeks that runs with or without a person. When you do hire, they inherit a working playbook instead of starting from scratch."
+          "text": "An SDR costs €40-60K/yr, takes 3 months to ramp, and might not work out. I build a system in ~4 weeks that runs with or without a person. When you do hire, they inherit a working playbook instead of starting from scratch."
         }
       },
       {
@@ -176,15 +176,15 @@
         "name": "What happens after the Build?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "You have a complete system with documentation. Your team can run it. If you want ongoing optimization, A/B testing, and new lead generation, the monthly retainer is available — but it's not required. The Build is designed to be self-sustaining."
+          "text": "Two paths. Build & Handoff: you have a complete system with documentation, your team runs it from day one. Build & Run: I keep running it past the build phase — sends, replies, calendar bookings — month to month. Monthly Retainer is optional after either path for lighter-touch optimization."
         }
       },
       {
         "@type": "Question",
-        "name": "What if the Pilot doesn't prove the system works?",
+        "name": "What if the system doesn't perform after the Build?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Then the Build doesn't happen. The Pilot is designed to give you real data on 50 firms in 10 days. If the output doesn't convince your sales team, you pay the pilot fee, keep everything I built, and walk away. No pressure to continue. The pilot fee is only credited if you do continue."
+          "text": "Build & Handoff carries a quality guarantee — if any deliverable misses the agreed spec, I rework it at no extra cost. Build & Run guarantees are scoped per engagement and written into the contract — we agree on the target before kickoff."
         }
       },
       {
@@ -200,7 +200,7 @@
         "name": "How do you handle my existing CRM and tool stack?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "First thing I do in the Pilot is audit what you have — Apollo, HubSpot, HighLevel, Salesforce, Attio, Pipedrive. I plug into whatever you're running. If something's missing, I recommend cheapest-good-enough options. I don't push you to change tools unless the tool is genuinely broken for signal-based outbound."
+          "text": "First thing I do in the Build is audit what you have — Apollo, HubSpot, HighLevel, Salesforce, Attio, Pipedrive. I plug into whatever you're running. If something's missing, I recommend cheapest-good-enough options. I don't push you to change tools unless the tool is genuinely broken for signal-based outbound."
         }
       },
       {
@@ -215,11 +215,11 @@
   }
   </script>
 
-  <!-- Plausible Analytics -->
-  <script async src="https://plausible.io/js/pa-m4otR3AHBPZuCDWAiodw2.js"></script>
+  <!-- Plausible Analytics (proxied via vercel.json to bypass ad-blockers) -->
+  <script async src="/js/pa-m4otR3AHBPZuCDWAiodw2.js"></script>
   <script>
     window.plausible=window.plausible||function(){(plausible.q=plausible.q||[]).push(arguments)},plausible.init=plausible.init||function(i){plausible.o=i||{}};
-    plausible.init({ outboundLinks: true })
+    plausible.init({ outboundLinks: true, api: '/api/event' })
   </script>
 
   <!-- Microsoft Clarity (session replay + heatmaps) -->
@@ -476,12 +476,26 @@
       margin-right: auto;
     }
 
+    .comparison-swipe-hint {
+      display: none;
+    }
     @media (max-width: 768px) {
       .container-wide { padding: 0 16px; }
       .comparison-wrap { border-radius: 12px; }
       .comparison-table thead th,
       .comparison-table tbody td { padding: 14px 14px; font-size: 13px; }
       .comparison-row-label { font-size: 11px; }
+      .comparison-swipe-hint {
+        display: block;
+        text-align: center;
+        font-family: var(--mono);
+        font-size: 11px;
+        color: var(--text-muted);
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-top: 24px;
+        margin-bottom: -12px;
+      }
     }
 
     /* HERO */
@@ -1795,9 +1809,9 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <div class="hero-badge"><span class="pulse"></span> Taking <span id="pilotMonth">pilot</span> bookings</div>
+      <div class="hero-badge"><span class="pulse"></span> Taking <span id="bookingMonth">new</span> bookings</div>
       <h1>Templates Don't Convert.<br>Real <em>Signals</em> Do.</h1>
-      <p class="subline">Cold outbound that references a real fact about the prospect &mdash; their growth rate, a specific customer, a strategic move. Built and documented in 5&ndash;6 weeks for B2B SaaS scaling sales into new regions.</p>
+      <p class="subline">Cold outbound that references a real fact about the prospect &mdash; their growth rate, a specific customer, a strategic move. Built and documented in ~4 weeks for B2B SaaS scaling sales into new regions.</p>
       <div class="hero-ctas">
         <a href="#scorecard" class="btn-primary">Score Your Pipeline</a>
         <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer" class="btn-secondary">Book a 15-min call</a>
@@ -1805,19 +1819,19 @@
 
       <div class="stats-bar">
         <div class="stat-item">
-          <div class="stat-num">10</div>
-          <div class="stat-label">Pilot Days</div>
-          <div class="stat-context">End-to-end</div>
+          <div class="stat-num">100%</div>
+          <div class="stat-label">Signal-Referenced</div>
+          <div class="stat-context">Every message uses real prospect data</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">50</div>
-          <div class="stat-label">Firms / Pilot</div>
-          <div class="stat-context">Full research + outreach</div>
+          <div class="stat-num">6–10%</div>
+          <div class="stat-label">Target Reply Rate</div>
+          <div class="stat-context">vs 1–3% industry</div>
         </div>
         <div class="stat-item">
-          <div class="stat-num">5–6</div>
-          <div class="stat-label">Weeks for Build</div>
-          <div class="stat-context">Handoff-ready</div>
+          <div class="stat-num">~4</div>
+          <div class="stat-label">Weeks to Build</div>
+          <div class="stat-context">Then yours or mine to run</div>
         </div>
       </div>
     </div>
@@ -1826,11 +1840,13 @@
   <!-- SOCIAL PROOF -->
   <div class="social-proof fade-up">
     <div class="container">
-      <div class="social-proof-label">Built systems at:</div>
+      <div class="social-proof-label">Operator background &mdash; David shipped at:</div>
       <div class="logo-row">
         <span class="logo-item">MasterBlox</span>
         <span class="logo-item">Seedify</span>
         <span class="logo-item">Thespian</span>
+        <span class="logo-item">Resomnium</span>
+        <span class="logo-item">Bitget</span>
       </div>
 
       <div class="case-study fade-up">
@@ -1863,11 +1879,12 @@
         </div>
         <div class="problem-card bad fade-up">
           <h3>Generic Outbound = Ignored</h3>
-          <p>Every AI outreach tool promises "personalization at scale." The result? Messages that sound like everyone else's. Founders can smell template from a mile away.</p>
+          <p>Every AI outreach tool promises "personalization at scale," and they all produce variations of the same template. Recipients can tell within the first sentence. The inbox filter is unconscious by now: if it sounds like the last seven you got, you ignore it.</p>
+
         </div>
         <div class="problem-card resolution fade-up">
           <h3>What You Actually Need</h3>
-          <p>A system &mdash; not a person. ICP scoring, signal-based sequences, agents that research before they write. Built in 5&ndash;6 weeks. Documented for handoff. Lives on after your best rep leaves.</p>
+          <p>A system &mdash; not a person. ICP scoring, signal-based sequences, agents that research before they write. Built in ~4 weeks. Documented for handoff. Lives on after your best rep leaves.</p>
         </div>
       </div>
     </div>
@@ -1883,7 +1900,7 @@
       <div class="problem-grid">
         <div class="problem-card good fade-up">
           <h3>The 2-Person Team That Should Cover 5</h3>
-          <p>You have two sales people. You don't want a third, fourth, or fifth &mdash; you want the two you have to perform like five. The fix isn't more headcount. It's a system underneath them: ICP scoring that filters who they touch, signal-based research that means they walk into every conversation already informed, sequences that get read because the message is grounded in real intel. Same team. Three times the territory covered.</p>
+          <p>You have two sales people. You don&rsquo;t want a third, fourth, or fifth &mdash; you want the two you have to perform like five. The leverage is a system underneath them, not another hire: ICP scoring that filters who they touch, signal-based research that means they walk into every conversation already informed, and sequences that get read because the message is grounded in real intel. Same team, three times the territory covered.</p>
         </div>
         <div class="problem-card good fade-up">
           <h3>The Founder Testing a New Market Alone</h3>
@@ -1897,8 +1914,8 @@
   <section id="results">
     <div class="container">
       <div class="section-label fade-up">Proof</div>
-      <h2 class="section-title fade-up">Built Where Cold Outreach Is Hardest</h2>
-      <p class="section-subtitle fade-up">I built GTMiQ in the hardest outbound environments first — Web3 campaigns where nobody replies to anything. Now applied to B2B SaaS founders scaling sales into new regions.</p>
+      <h2 class="section-title fade-up">Built On What Actually Booked Meetings</h2>
+      <p class="section-subtitle fade-up">GTMiQ runs on a private library of LinkedIn messages that booked meetings and call transcripts from conversations that closed &mdash; 2.5 years of pattern data encoded into Claude skills that now power every engagement. Every sequence I write for a client draws from what&rsquo;s actually worked across hundreds of real B2B conversations, not from templates that sound good in isolation.</p>
 
       <div class="results-box fade-up">
         <div class="results-stats">
@@ -1909,16 +1926,16 @@
           </div>
           <div>
             <div class="result-num">5</div>
-            <div class="result-label">Leads / Week / Salesperson</div>
-            <div class="result-context">Fully researched, ready to send</div>
+            <div class="result-label">Target Leads / Wk / Rep</div>
+            <div class="result-context">Build &amp; Run guarantee target</div>
           </div>
           <div>
-            <div class="result-num">2+</div>
-            <div class="result-label">Years Outbound R&amp;D</div>
-            <div class="result-context">Web3, B2B SaaS, European markets</div>
+            <div class="result-num">2.5 yr</div>
+            <div class="result-label">Pattern Library</div>
+            <div class="result-context">LinkedIn messages + call transcripts that converted</div>
           </div>
         </div>
-        <p class="results-context">"The response rate isn't magic. It's the system forcing thoroughness. When your research is deep, your outreach feels human &mdash; and replies come back."</p>
+        <p class="results-context">Response rate isn&rsquo;t magic. It&rsquo;s the system forcing thoroughness before the writing &mdash; when the research is deep, the outreach reads as written by someone who actually understands the recipient.</p>
       </div>
     </div>
   </section>
@@ -1927,8 +1944,8 @@
   <section id="how-it-works">
     <div class="container">
       <div class="section-label fade-up">How It Works</div>
-      <h2 class="section-title fade-up">5–6 Weeks. Working Pipeline. Handoff Ready.</h2>
-      <p class="section-subtitle fade-up">I come in, build the system, document everything, and hand it over. Your team runs it without me. Start with a Pilot Sprint if you want to prove it on a smaller sample first.</p>
+      <h2 class="section-title fade-up">4 Weeks to Build. Then Yours to Run, or Mine.</h2>
+      <p class="section-subtitle fade-up">I come in, build the system, and document everything. Then your team runs it (Build &amp; Handoff) &mdash; or I run it for you and drop booked meetings into your calendar (Build &amp; Run).</p>
 
       <div class="steps">
         <div class="step fade-up">
@@ -1959,8 +1976,8 @@
           <div class="step-num">04</div>
           <div>
             <h3>Documented Playbook + Handoff</h3>
-            <p>ICP criteria, sequence templates, scoring logic, escalation rules, automation workflows — all documented. Live Loom walkthrough of every workflow. Your team runs this without me. I'm building a system, not a dependency.</p>
-            <span class="step-tag">Week 4–6</span>
+            <p>ICP criteria, sequence templates, scoring logic, escalation rules, automation workflows &mdash; all documented. Live Loom walkthrough of every workflow. Your team runs the system without me. The deliverable is something your team can operate on day one.</p>
+            <span class="step-tag">Week 4</span>
           </div>
         </div>
       </div>
@@ -1982,7 +1999,7 @@
             <li><span class="qi">&#10003;</span> Scaling sales into new regions where nobody knows you yet</li>
             <li><span class="qi">&#10003;</span> Small sales team (2&ndash;6 people) or founder still doing it alone</li>
             <li><span class="qi">&#10003;</span> You want a documented system your team can run</li>
-            <li><span class="qi">&#10003;</span> You're ready to fund a pilot to prove the motion before scaling</li>
+            <li><span class="qi">&#10003;</span> You&rsquo;re ready to commit to a 3-month engagement to prove the motion before scaling</li>
           </ul>
         </div>
         <div class="qualifier-col no fade-up">
@@ -1991,7 +2008,7 @@
             <li><span class="qi">&#10007;</span> You want a magic tool, not a system</li>
             <li><span class="qi">&#10007;</span> You're pre-product with no customers yet</li>
             <li><span class="qi">&#10007;</span> You already have a senior sales team and defined playbook</li>
-            <li><span class="qi">&#10007;</span> You have no budget for a paid pilot</li>
+            <li><span class="qi">&#10007;</span> You have no budget for a paid engagement</li>
             <li><span class="qi">&#10007;</span> You just want "more emails sent faster"</li>
           </ul>
         </div>
@@ -2095,44 +2112,44 @@
     <div class="container">
       <div class="section-label fade-up" style="text-align:center;">Engagement</div>
       <h2 class="section-title fade-up" style="text-align:center;">Three Ways to Work Together</h2>
-      <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">A fraction of what a GTM hire costs. Start with a low-risk pilot, scale into a full Build, retainer optional. Pricing scales with complexity &mdash; quoted per scope.</p>
+      <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">A fraction of what a GTM hire costs. Choose: take the playbook in-house after I build it, or let me run it and book your calls. Retainer optional after either path.</p>
 
       <div class="pricing-grid">
         <div class="pricing-card fade-up">
-          <div class="pricing-name">Pilot Sprint</div>
-          <div class="pricing-desc">Full methodology on a smaller sample. Prove it works first.</div>
-          <div class="pricing-price">Fixed pilot fee <span>10 working days</span></div>
-          <div class="pricing-reversal">Pilot fee credited toward Build if you continue</div>
-          <ul class="pricing-features">
-            <li><span class="check">&#10003;</span> Signal detection on a sample of 50 firms</li>
-            <li><span class="check">&#10003;</span> Lead scoring calibrated to your ICP</li>
-            <li><span class="check">&#10003;</span> Personalized outreach for 1 sales person</li>
-            <li><span class="check">&#10003;</span> Live demo of the output</li>
-            <li><span class="check">&#10003;</span> Report + ROI projection at end</li>
-          </ul>
-          <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer" class="pricing-cta secondary">Book a Pilot Sprint Call</a>
-        </div>
-
-        <div class="pricing-card featured fade-up">
-          <div class="pricing-name">Done-For-You Build</div>
-          <div class="pricing-desc">Complete outbound engine, built in 5&ndash;6 weeks.</div>
-          <div class="pricing-price">Quoted to scope <span>5&ndash;6 weeks</span></div>
-          <div class="pricing-reversal">5 leads / wk / rep in 60 days &mdash; or free rebuild</div>
+          <div class="pricing-name">Build &amp; Handoff</div>
+          <div class="pricing-desc">Full system delivered in ~4 weeks. Your team runs it after.</div>
+          <div class="pricing-price">From &euro;1,500 <span>one-time</span></div>
+          <div class="pricing-reversal">Quality guarantee &mdash; rework included if a deliverable misses spec</div>
           <ul class="pricing-features">
             <li><span class="check">&#10003;</span> Signal detection across your full ICP</li>
             <li><span class="check">&#10003;</span> Lead scoring framework</li>
-            <li><span class="check">&#10003;</span> Outreach sequence engine (initial + 2 follow-ups)</li>
+            <li><span class="check">&#10003;</span> Outreach sequences (initial + 2 follow-ups)</li>
             <li><span class="check">&#10003;</span> CRM integration (n8n + your stack)</li>
             <li><span class="check">&#10003;</span> Documented playbook + Loom training</li>
           </ul>
-          <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer" class="pricing-cta primary">Book a Call &mdash; Scope Your Build</a>
+          <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer" class="pricing-cta secondary">Scope a Build</a>
+        </div>
+
+        <div class="pricing-card featured fade-up">
+          <div class="pricing-name">Build &amp; Run</div>
+          <div class="pricing-desc">I build in ~4 weeks, then run it for 2 more months. Calls land in your calendar.</div>
+          <div class="pricing-price">From &euro;3,500 <span>/ month &middot; 3-month minimum</span></div>
+          <div class="pricing-reversal">Results target agreed in scope &mdash; written into the contract</div>
+          <ul class="pricing-features">
+            <li><span class="check">&#10003;</span> Everything in Build &amp; Handoff</li>
+            <li><span class="check">&#10003;</span> I send the messages from your LinkedIn / email</li>
+            <li><span class="check">&#10003;</span> Replies handled, qualified, and routed</li>
+            <li><span class="check">&#10003;</span> Booked meetings dropped into your calendar</li>
+            <li><span class="check">&#10003;</span> Weekly pipeline report &mdash; sends, replies, meetings</li>
+          </ul>
+          <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer" class="pricing-cta primary">Book a Call &mdash; Run It For Me</a>
         </div>
 
         <div class="pricing-card fade-up">
           <div class="pricing-name">Monthly Retainer</div>
           <div class="pricing-desc">Weekly optimization after the Build. Optional.</div>
-          <div class="pricing-price">Monthly <span>cancel anytime</span></div>
-          <div class="pricing-note">No contract lock-in. Quoted to scope.</div>
+          <div class="pricing-price">From &euro;1,500 <span>/ month &middot; cancel anytime</span></div>
+          <div class="pricing-note">No contract lock-in. Scales with scope.</div>
           <ul class="pricing-features">
             <li><span class="check">&#10003;</span> Weekly sequence optimization</li>
             <li><span class="check">&#10003;</span> New lead list generation</li>
@@ -2151,7 +2168,9 @@
     <div class="container-wide">
       <div class="section-label fade-up" style="text-align:center;">Vs the alternatives</div>
       <h2 class="section-title fade-up" style="text-align:center;">Not the same as hiring or tooling</h2>
-      <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">Different shape, different outcome. An SDR costs &euro;120K/yr. A tool subscription costs &euro;50-500/mo forever. GTMiQ builds you a system once and hands it over.</p>
+      <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">Different shape, different outcome. An SDR costs &euro;120K/yr. A tool subscription costs &euro;50-500/mo forever. GTMiQ either builds you a system and hands it over &mdash; or builds it and runs it for you.</p>
+
+      <div class="comparison-swipe-hint">&larr; swipe to compare &rarr;</div>
 
       <div class="comparison-wrap fade-up">
         <table class="comparison-table">
@@ -2167,14 +2186,14 @@
           <tbody>
             <tr>
               <td class="comparison-row-label">Upfront cost</td>
-              <td class="comparison-cell-us">Fixed pilot fee <span class="comparison-sub">(scoped to complexity)</span></td>
+              <td class="comparison-cell-us">From &euro;1,500 build <span class="comparison-sub">/ from &euro;3,500 mo run-it</span></td>
               <td>&euro;5&ndash;10K / mo</td>
               <td>&euro;99&ndash;499 / mo</td>
               <td>&euro;49&ndash;99 / mo</td>
             </tr>
             <tr>
               <td class="comparison-row-label">Time to live pipeline</td>
-              <td class="comparison-cell-us">10 days</td>
+              <td class="comparison-cell-us">First sends Week 2&ndash;3 <span class="comparison-sub">Full system Week 4</span></td>
               <td>3 months ramp</td>
               <td>Day 1 tool, 30+ days to real output</td>
               <td>Day 1 tool, 30+ days to real output</td>
@@ -2225,7 +2244,7 @@
         </table>
       </div>
 
-      <p class="comparison-footer fade-up">GTMiQ isn't a replacement for any of these. It's the system behind them. Pair with Apollo or HubSpot, or run standalone. The methodology is the point &mdash; not the tool stack.</p>
+      <p class="comparison-footer fade-up">GTMiQ pairs with tools like Apollo or HubSpot rather than replacing them. Run them alongside, or run GTMiQ standalone. The methodology is what makes a tool stack perform as a system.</p>
     </div>
   </section>
 
@@ -2237,8 +2256,8 @@
 
       <div class="about-card fade-up">
         <div class="about-intro">
-          <p>I run GTMiQ out of Zagreb. Two years shipping signal-based outbound systems &mdash; started on Web3 campaigns where nobody replies to anything, now applied to B2B SaaS founders trying to scale sales into markets where they're unknown.</p>
-          <p>The thesis: outbound is not a spray-and-pray volume problem. It's a research problem. Every message should reference a real fact about the prospect. If your system can't do that at scale, you shouldn't be sending 1,000 emails a week.</p>
+          <p>I run GTMiQ out of Zagreb. The methodology comes from 2.5 years of running B2B outreach on LinkedIn and studying transcripts from sales calls that actually closed &mdash; packaged into Claude skills that power every engagement. Every sequence GTMiQ writes draws from what&rsquo;s worked across hundreds of real conversations, not from templates. Now applied to B2B SaaS founders scaling sales into markets where they&rsquo;re unknown.</p>
+          <p>The thesis: outbound isn&rsquo;t a spray-and-pray volume problem. It&rsquo;s a research problem. Every message should reference a real fact about the prospect. If your system can&rsquo;t do that at scale, you shouldn&rsquo;t be sending 1,000 emails a week.</p>
         </div>
 
         <div class="about-grid">
@@ -2251,8 +2270,8 @@
             <div class="about-fact-value">MEng AI / Automation &mdash; University of Rijeka</div>
           </div>
           <div class="about-fact">
-            <div class="about-fact-label">Built at</div>
-            <div class="about-fact-value">MasterBlox, Seedify, Thespian, independent client work</div>
+            <div class="about-fact-label">Operator at</div>
+            <div class="about-fact-value">MasterBlox, Seedify, Thespian, Resomnium, Bitget</div>
           </div>
           <div class="about-fact">
             <div class="about-fact-label">Based</div>
@@ -2291,7 +2310,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-answer">
-            <p>Those are tools. GTMiQ is an operator who builds the system using the right tools for your situation. The gap in most startups isn't the software — it's the thinking behind it. I build the ICP logic, the automation workflows, and the sequences that make the tools actually work.</p>
+            <p>Apollo, Clay, Instantly are tools you can buy off the shelf. GTMiQ is the operator who configures the right tools for your situation, builds the ICP logic, designs the automation workflows, and writes the sequences. Most startups have access to the same software. What differentiates a working outbound function is the methodology behind how it gets used.</p>
           </div>
         </div>
         <div class="faq-item fade-up">
@@ -2309,7 +2328,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-answer">
-            <p>Access to your existing tools (if any), 2&ndash;3 hours of your time over 5&ndash;6 weeks for ICP workshops and feedback loops, and a clear idea of who your customer is. I handle everything else.</p>
+            <p>Access to your existing tools (if any), 2&ndash;3 hours of your time over ~4 weeks for ICP workshops and feedback loops, and a clear idea of who your customer is. I handle everything else.</p>
           </div>
         </div>
         <div class="faq-item fade-up">
@@ -2318,7 +2337,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-answer">
-            <p>An SDR costs &euro;40&ndash;60K/yr, takes 3 months to ramp, and might not work out. I build a system in 5&ndash;6 weeks that runs with or without a person. When you do hire, they inherit a working playbook instead of starting from scratch.</p>
+            <p>An SDR costs &euro;40&ndash;60K/yr, takes 3 months to ramp, and might not work out. I build a system in ~4 weeks that runs with or without a person. When you do hire, they inherit a working playbook instead of starting from scratch.</p>
           </div>
         </div>
         <div class="faq-item fade-up">
@@ -2327,16 +2346,16 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-answer">
-            <p>You have a complete system with documentation. Your team can run it. If you want ongoing optimization, A/B testing, and new lead generation, the monthly retainer is available &mdash; but it's not required. The Build is designed to be self-sustaining.</p>
+            <p>Two paths. <strong>Build &amp; Handoff:</strong> you have a complete system with documentation, your team runs it from day one. <strong>Build &amp; Run:</strong> I keep running it past the build phase &mdash; sends, replies, calendar bookings &mdash; month to month. The Monthly Retainer is optional after either path for lighter-touch ongoing optimization.</p>
           </div>
         </div>
         <div class="faq-item fade-up">
           <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
-            What if the Pilot doesn't prove the system works?
+            What if the system doesn't perform after the Build?
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-answer">
-            <p>Then the Build doesn't happen. The Pilot is designed to give you real data on 50 firms in 10 days. If the output doesn't convince your sales team, you pay the pilot fee, keep everything I built, and walk away. No pressure to continue. The pilot fee is only credited if you do continue.</p>
+            <p><strong>Build &amp; Handoff</strong> carries a quality guarantee &mdash; if any deliverable misses the agreed spec, I rework it at no extra cost. <strong>Build &amp; Run</strong> guarantees are scoped per engagement and written into the contract &mdash; we agree on the target before kickoff.</p>
           </div>
         </div>
         <div class="faq-item fade-up">
@@ -2354,7 +2373,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-answer">
-            <p>First thing I do in the Pilot is audit what you have &mdash; Apollo, HubSpot, HighLevel, Salesforce, Attio, Pipedrive. I plug into whatever you're running. If something's missing, I recommend cheapest-good-enough options. I don't push you to change tools unless the tool is genuinely broken for signal-based outbound.</p>
+            <p>First thing I do in the Build is audit what you have &mdash; Apollo, HubSpot, HighLevel, Salesforce, Attio, Pipedrive. I plug into whatever you're running. If something&rsquo;s missing, I recommend cheapest-good-enough options. I don&rsquo;t push you to change tools unless the tool is genuinely broken for signal-based outbound.</p>
           </div>
         </div>
         <div class="faq-item fade-up">
@@ -2388,11 +2407,11 @@
   <footer role="contentinfo">
     <div class="footer-left">
       <div>GTMiQ &middot; David Musta&#269; &middot; Powered by signal intelligence, not spray and pray.</div>
-      <div class="footer-legal">Ascendia &middot; David Musta&#269; &middot; Zagreb, HR</div>
+      <div class="footer-legal">GTMiQ is a service of Ascendia &middot; Zagreb, HR &middot; <a href="https://ascendia.ceo" style="color:inherit;">ascendia.ceo</a></div>
     </div>
     <div class="footer-right">
       <a href="https://www.linkedin.com/in/david-mustac/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="mailto:dejvid814@gmail.com">Email</a>
+      <a href="mailto:david@ascendia.ceo">Email</a>
       <a href="https://cal.com/david-mustac/gtmiq" target="_blank" rel="noopener noreferrer">Book a Call</a>
     </div>
   </footer>
@@ -2523,8 +2542,8 @@
 
     const gradeMap = [
       { min: 85, grade: "A", title: "Pipeline Machine", desc: "You're ahead of 95% of startups at your stage. You don't need a rebuild \u2014 you need someone who can squeeze 20% more from what's already working. Book a call and I'll show you where the compounding gains are hiding.", color: "#4ade80" },
-      { min: 70, grade: "B", title: "Strong Foundation", desc: "The bones are good. Some gaps in automation and signal detection. A sprint could take you from good to great.", color: "#4ade80" },
-      { min: 55, grade: "C", title: "Patchwork Pipeline", desc: "You have pieces working but no system connecting them. Leads fall through cracks. Automation would transform your output.", color: "#fbbf24" },
+      { min: 70, grade: "B", title: "Strong Foundation", desc: "The bones are good. Some gaps in automation and signal detection. A focused engagement could take you from working to scalable.", color: "#4ade80" },
+      { min: 55, grade: "C", title: "Patchwork Pipeline", desc: "You have pieces working but no system connecting them. Leads fall through cracks. Automation would close that gap quickly.", color: "#fbbf24" },
       { min: 40, grade: "D", title: "Leaky Bucket", desc: "You're generating some activity but without scoring, signals, or sequences, most of it goes nowhere. Time to build the infrastructure.", color: "#f97316" },
       { min: 0, grade: "F", title: "No Outbound System", desc: "You're running on founder hustle alone. This works until it doesn't \u2014 and it usually stops working right when you need pipeline most.", color: "#f87171" }
     ];
@@ -2898,9 +2917,9 @@
       initScorecard();
 
       // Auto-fill the current month in the hero pulse-badge so it never goes stale
-      const pilotMonthEl = document.getElementById('pilotMonth');
-      if (pilotMonthEl) {
-        pilotMonthEl.textContent = new Date().toLocaleString('en-US', { month: 'long' });
+      const bookingMonthEl = document.getElementById('bookingMonth');
+      if (bookingMonthEl) {
+        bookingMonthEl.textContent = new Date().toLocaleString('en-US', { month: 'long' });
       }
 
       // Plausible event delegation — track primary CTA clicks across the page
