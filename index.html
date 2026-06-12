@@ -187,6 +187,14 @@
       },
       {
         "@type": "Question",
+        "name": "What happens if you're unavailable?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The system is built so this doesn't matter. Everything is documented from day one — ICP logic, scoring, sequences, workflows, plus Loom walkthroughs of every part. Build & Handoff clients run it without me by design. If anything happens mid-engagement, you keep a complete, operable system — nothing lives in my head."
+        }
+      },
+      {
+        "@type": "Question",
         "name": "Do you take a commission on deals closed?",
         "acceptedAnswer": {
           "@type": "Answer",
@@ -199,6 +207,14 @@
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "First thing I do in the Build is audit what you have — Apollo, HubSpot, HighLevel, Attio, Pipedrive. I plug into whatever you're running. If something's missing, I recommend cheapest-good-enough options. I don't push you to change tools unless the tool is genuinely broken for signal-based outbound."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is this safe for my LinkedIn account?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes — because the volumes are deliberately low. Signal-based outbound means ~5 well-researched prospects per rep per week, not hundreds of automated sends. Messages are individually written and approved before anything goes out. Nothing about the pattern looks automated, because the writing isn't."
         }
       },
       {
@@ -2145,6 +2161,9 @@
       cursor: pointer;
     }
     .comparison-cards { display: none; }
+    .micro-cta { text-align: center; margin: 28px 0 0; font-family: var(--mono); font-size: 13px; }
+    .micro-cta a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--border-accent); padding: 10px 2px; }
+    .micro-cta a:hover { border-bottom-color: var(--accent); }
     footer .footer-right a, .footer-legal a {
       display: inline-block;
       padding: 12px 6px;
@@ -2341,6 +2360,7 @@
           <p><strong>You&rsquo;re running sales yourself and expanding into a new market.</strong> You don't want to hire your first rep there until you've proven the channel works. The problem: you can't research, score, and run discovery calls while running the company. The fix: a system that prepares five fully-researched prospects every morning for the new market. You open your laptop and start sending &mdash; no three-hour research detour first.</p>
         </div>
       </div>
+      <p class="micro-cta fade-up"><a href="#scorecard">Sound familiar? &rarr; Score your pipeline (2 min)</a></p>
     </div>
   </section>
 
@@ -2395,7 +2415,7 @@
     <div class="container">
       <div class="section-label fade-up">How It Works</div>
       <h2 class="section-title fade-up">4 Weeks to Build. Then Yours to Run, or Mine.</h2>
-      <p class="section-subtitle fade-up">I come in, build the system, and document everything. Then your team runs it (Build &amp; Handoff) &mdash; or I run it for you and drop booked meetings into your calendar (Build &amp; Run).</p>
+      <p class="section-subtitle fade-up">I come in, build the system, and document everything. Then your team runs it (Build &amp; Handoff) &mdash; or I run it for you and drop booked meetings into your calendar (Build &amp; Run). Your total time investment: 2&ndash;3 hours across the four weeks.</p>
 
       <div class="steps">
         <div class="step fade-up">
@@ -2431,6 +2451,7 @@
           </div>
         </div>
       </div>
+      <p class="micro-cta fade-up"><a href="#scorecard">Sound familiar? &rarr; Score your pipeline (2 min)</a></p>
     </div>
   </section>
 
@@ -2653,6 +2674,13 @@
               <td>Day 1 tool, 30+ days to real output</td>
             </tr>
             <tr>
+              <td class="comparison-row-label">Your time required</td>
+              <td class="comparison-cell-us">2&ndash;3 hrs over 4 weeks</td>
+              <td>Hiring + managing, ongoing</td>
+              <td>You operate it</td>
+              <td>You operate it</td>
+            </tr>
+            <tr>
               <td class="comparison-row-label">Signal research per prospect</td>
               <td class="comparison-cell-us">Built into workflow</td>
               <td>Manual, per rep</td>
@@ -2822,6 +2850,15 @@
         </div>
         <div class="faq-item fade-up">
           <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            What happens if you're unavailable?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>The system is built so this doesn't matter. Everything is documented from day one &mdash; ICP logic, scoring, sequences, workflows, plus Loom walkthroughs of every part. Build &amp; Handoff clients run it without me by design. If anything happens mid-engagement, you keep a complete, operable system &mdash; nothing lives in my head.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
             Do you take a commission on deals closed?
             <span class="faq-arrow">+</span>
           </button>
@@ -2836,6 +2873,15 @@
           </button>
           <div class="faq-answer">
             <p>First thing I do in the Build is audit what you have &mdash; Apollo, HubSpot, HighLevel, Attio, Pipedrive. I plug into whatever you're running. If something&rsquo;s missing, I recommend cheapest-good-enough options. I don&rsquo;t push you to change tools unless the tool is genuinely broken for signal-based outbound.</p>
+          </div>
+        </div>
+        <div class="faq-item fade-up">
+          <button type="button" class="faq-question" onclick="toggleFaq(this)" aria-expanded="false">
+            Is this safe for my LinkedIn account?
+            <span class="faq-arrow">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Yes &mdash; because the volumes are deliberately low. Signal-based outbound means ~5 well-researched prospects per rep per week, not hundreds of automated sends. Messages are individually written and approved before anything goes out. Nothing about the pattern looks automated, because the writing isn't.</p>
           </div>
         </div>
         <div class="faq-item fade-up">
@@ -2858,7 +2904,7 @@
       <h2 class="fade-up">Ready to Build Your Pipeline?</h2>
       <p class="fade-up">Take the scorecard first or book a call directly. 15 minutes and you'll know whether this is worth building.</p>
       <div class="hero-ctas fade-up">
-        <a href="#scorecard" class="btn-primary">Take the Scorecard First</a>
+        <a href="#scorecard" class="btn-primary">Score Your Pipeline (2 min)</a>
         <a href="https://calendly.com/davidm98/meet-with-david" target="_blank" rel="noopener noreferrer" class="btn-secondary">Book a 15-min call</a>
       </div>
       <p class="cta-echo fade-up">&ldquo;Call me, let&rsquo;s meet.&rdquo;<span>&mdash; same-morning reply to one cold message</span></p>
