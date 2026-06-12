@@ -142,7 +142,7 @@
         "name": "How is this different from Apollo, Clay, or Instantly?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Those are tools. GTMiQ is an operator who builds the system using the right tools for your situation. The gap in most startups isn't the software — it's the thinking behind it. I build the ICP logic, the automation workflows, and the sequences that make the tools actually work."
+          "text": "Those are tools. GTMiQ is an operator who builds the system using the right tools for your situation. Most startups have access to the same software — the gap is the methodology behind how it gets used. I build the ICP logic, the automation workflows, and the sequences that make the tools actually work."
         }
       },
       {
@@ -1579,7 +1579,7 @@
     }
 
     .pricing-card.featured::before {
-      content: 'Recommended';
+      content: 'Most engagements';
       position: absolute;
       top: -12px;
       left: 50%;
@@ -1622,7 +1622,16 @@
     .pricing-price span {
       font-size: 16px;
       color: var(--text-muted);
-      font-weight: 400;
+      font-weight: 600;
+    }
+    .pricing-chips {
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      text-align: center;
+      margin: -6px auto 36px;
     }
 
     .pricing-note {
@@ -2143,7 +2152,7 @@
         <div class="hero-copy">
           <div class="hero-badge"><span class="pulse"></span> Taking <span id="bookingMonth">new</span> bookings</div>
           <h1>Templates Don't Convert.<br>Real <em>Signals</em> Do.</h1>
-          <p class="subline">Cold outbound that references a real fact about the prospect &mdash; their growth rate, a specific customer, a strategic move. Built and documented in ~4 weeks for B2B SaaS scaling sales into new regions.</p>
+          <p class="subline">Qualified meetings on your calendar from cold outbound that references a real fact about each prospect &mdash; their growth rate, a specific customer, a strategic move. Built and documented in ~4 weeks, for B2B SaaS entering new markets.</p>
           <div class="hero-ctas">
             <a href="#scorecard" class="btn-primary">Score Your Pipeline</a>
             <a href="https://calendly.com/davidm98/meet-with-david" target="_blank" rel="noopener noreferrer" class="btn-secondary">Book a 15-min call</a>
@@ -2222,7 +2231,7 @@
         </div>
         <div class="problem-card resolution fade-up">
           <h3>What You Actually Need</h3>
-          <p>A system &mdash; not a person. ICP scoring, signal-based sequences, agents that research before they write. Built in ~4 weeks. Documented for handoff. Lives on after your best rep leaves.</p>
+          <p>A system that outlives any hire. ICP scoring, signal-based sequences, agents that research before they write. Built in ~4 weeks. Documented for handoff.</p>
         </div>
       </div>
     </div>
@@ -2238,11 +2247,11 @@
       <div class="problem-grid">
         <div class="problem-card good fade-up">
           <h3>The 2-Person Team That Should Cover 5</h3>
-          <p>You have two sales people. You don&rsquo;t want a third, fourth, or fifth &mdash; you want the two you have to perform like five. The leverage is a system underneath them, not another hire: ICP scoring that filters who they touch, signal-based research that means they walk into every conversation already informed, and sequences that get read because the message is grounded in real intel. Same team, three times the territory covered.</p>
+          <p><strong>You have two sales people.</strong> You don&rsquo;t want a third, fourth, or fifth &mdash; you want the two you have to perform like five. What multiplies them is a system underneath them, not another hire: ICP scoring that filters who they touch, signal-based research that means they walk into every conversation already informed, and sequences that get read because the message is grounded in real intel. Same team, multiples of the territory covered.</p>
         </div>
         <div class="problem-card good fade-up">
           <h3>The Founder Testing a New Market Alone</h3>
-          <p>You're running sales yourself and you're trying to expand into a new market. You don't want to hire your first rep there until you've proven the channel works. The problem: you can't research, score, and run discovery calls while running the company. The fix: a system that prepares five fully-researched prospects every morning for the new market. You open your laptop and start sending &mdash; no three-hour research detour first.</p>
+          <p><strong>You&rsquo;re running sales yourself and expanding into a new market.</strong> You don't want to hire your first rep there until you've proven the channel works. The problem: you can't research, score, and run discovery calls while running the company. The fix: a system that prepares five fully-researched prospects every morning for the new market. You open your laptop and start sending &mdash; no three-hour research detour first.</p>
         </div>
       </div>
     </div>
@@ -2310,7 +2319,7 @@
           <div class="step-num">02</div>
           <div>
             <h3>The Research Engine</h3>
-            <p>n8n workflows + Claude agents that score, research, and draft outreach without manual input. Not a tool stack you babysit. Leads show up in your CRM with research attached. You decide what to do with them.</p>
+            <p>n8n workflows + Claude agents that score, research, and draft outreach without manual input. Leads show up in your CRM with research attached &mdash; you decide what to do with them.</p>
             <span class="step-tag">Week 2</span>
           </div>
         </div>
@@ -2412,7 +2421,7 @@
           <!-- Email form -->
           <div class="gate-form">
             <h4 class="gate-form-title">Enter email to unlock your breakdown + top 3 fixes</h4>
-            <p class="gate-form-sub">See how you compare to other Seed&ndash;Series A founders. No spam. One email to follow up, that's it.</p>
+            <p class="gate-form-sub">See where you stand. No spam. One email to follow up, that's it.</p>
             <label for="gateEmail" class="sr-only">Email address</label>
             <input type="email" id="gateEmail" placeholder="your@email.com" aria-label="Email address" required>
             <div id="emailError" style="color:var(--red); font-size:13px; margin-bottom:8px; display:none;">Please enter your email to see results.</div>
@@ -2464,12 +2473,14 @@
       <div class="section-label fade-up" style="text-align:center;">Engagement</div>
       <h2 class="section-title fade-up" style="text-align:center;">Three Ways to Work Together</h2>
       <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">A fraction of what a GTM hire costs. Choose: take the playbook in-house after I build it, or let me run it and book your calls. Monthly Retainer optional after Build &amp; Run.</p>
+      <p class="pricing-chips fade-up">Fixed price &middot; No commission &middot; No equity</p>
 
       <div class="pricing-grid">
         <div class="pricing-card fade-up">
           <div class="pricing-name">Build &amp; Handoff</div>
           <div class="pricing-desc">Full system delivered in ~4 weeks. Your team runs it after.</div>
           <div class="pricing-price">From &euro;1,500 <span>one-time</span></div>
+          <div class="pricing-note">Final quote scales with ICP size and channels &mdash; fixed before kickoff.</div>
           <div class="pricing-reversal">Quality guarantee &mdash; rework included if a deliverable misses spec</div>
           <ul class="pricing-features">
             <li><span class="check">&#10003;</span> Signal detection across your full ICP</li>
@@ -2485,6 +2496,7 @@
           <div class="pricing-name">Build &amp; Run</div>
           <div class="pricing-desc">I build in ~4 weeks, then run it for 2 more months. Calls land in your calendar.</div>
           <div class="pricing-price">From &euro;3,500 <span>/ month &middot; 3-month minimum</span></div>
+          <div class="pricing-note">&euro;10,500 minimum engagement, all-in &mdash; scope and target fixed before kickoff.</div>
           <div class="pricing-reversal">Results target agreed in scope &mdash; written into the contract</div>
           <ul class="pricing-features">
             <li><span class="check">&#10003;</span> Everything in Build &amp; Handoff</li>
@@ -2518,7 +2530,7 @@
   <section id="comparison">
     <div class="container-wide">
       <div class="section-label fade-up" style="text-align:center;">Vs the alternatives</div>
-      <h2 class="section-title fade-up" style="text-align:center;">Not the same as hiring or tooling</h2>
+      <h2 class="section-title fade-up" style="text-align:center;">Where this sits against hiring and tooling</h2>
       <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">Different shape, different outcome. A mid-level SDR costs &euro;60&ndash;90K/yr fully loaded. A tool subscription costs &euro;50-500/mo forever. GTMiQ either builds you a system and hands it over &mdash; or builds it and runs it for you.</p>
 
       <div class="comparison-swipe-hint">&larr; swipe to compare &rarr;</div>
@@ -2615,7 +2627,7 @@
         </div>
         <div class="about-intro">
           <p>I run GTMiQ out of Zagreb. The methodology comes from 2.5 years of running B2B outreach on LinkedIn and studying transcripts from sales calls that actually closed &mdash; packaged into Claude skills that power every engagement. Every sequence GTMiQ writes draws from what&rsquo;s worked across hundreds of real conversations, not from templates. Now applied to B2B SaaS founders scaling sales into markets where they&rsquo;re unknown.</p>
-          <p>The thesis: outbound isn&rsquo;t a spray-and-pray volume problem. It&rsquo;s a research problem. Every message should reference a real fact about the prospect. If your system can&rsquo;t do that at scale, you shouldn&rsquo;t be sending 1,000 emails a week.</p>
+          <p>The thesis: outbound is a research problem. Every message should reference a real fact about the prospect. If your system can&rsquo;t do that at scale, you shouldn&rsquo;t be sending 1,000 emails a week.</p>
         </div>
         </div><!-- /about-layout -->
 
@@ -2765,7 +2777,7 @@
   <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="footer-left">
-      <div><span class="footer-wordmark">GTM<span>iQ</span></span> &middot; David Musta&#269; &middot; Powered by signal intelligence, not spray and pray.</div>
+      <div><span class="footer-wordmark">GTM<span>iQ</span></span> &middot; David Musta&#269; &middot; Built on signal intelligence &mdash; research before writing, every message.</div>
       <div class="footer-legal">GTMiQ is a service of Ascendia &middot; Zagreb, HR &middot; <a href="https://ascendia.ceo" style="color:inherit;">ascendia.ceo</a></div>
     </div>
     <div class="footer-right">
