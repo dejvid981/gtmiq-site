@@ -1588,6 +1588,8 @@
       padding: 40px;
       box-shadow: var(--shadow-s);
       transition: all 0.3s;
+      display: flex;
+      flex-direction: column;
     }
 
     .pricing-card.featured {
@@ -1638,7 +1640,9 @@
     }
 
     .pricing-price span {
-      font-size: 16px;
+      display: block;
+      margin-top: 6px;
+      font-size: 14px;
       color: var(--text-muted);
       font-weight: 600;
     }
@@ -1691,6 +1695,7 @@
       font-weight: 600;
       text-decoration: none;
       transition: all 0.2s;
+      margin-top: auto;
     }
 
     .pricing-cta.primary {
