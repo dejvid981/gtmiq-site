@@ -243,6 +243,7 @@
       --accent-dim: rgba(15,60,200,0.07);
       --accent-glow: rgba(15,60,200,0.14);
       --brass: #B8935E;         /* Brass — hairline rules only */
+      --brass-text: #8F6F42;    /* text-grade brass — AA-readable on white */
       --text: #0A1929;          /* Ink — body text */
       --text-dim: #3F4D5C;      /* dimmed ink, readable on Paper */
       --text-muted: #555E6A;    /* muted ink — AA-compliant on Paper */
@@ -387,7 +388,7 @@
 
     .nav-cta:hover { opacity: 0.9; }
 
-    .mobile-menu { display: none; cursor: pointer; }
+    .mobile-menu { display: none; cursor: pointer; padding: 13px 10px; min-width: 44px; min-height: 44px; box-sizing: border-box; background: none; border: none; }
     .mobile-menu span {
       display: block;
       width: 24px;
@@ -1075,6 +1076,7 @@
 
     .scorecard-btn {
       padding: 12px 28px;
+      min-height: 44px;
       border-radius: 8px;
       font-size: 14px;
       font-weight: 600;
@@ -1933,13 +1935,13 @@
       text-underline-offset: 4px;
     }
 
-    .sig .note {
+    .sig .note, .sig + .note {
       display: inline-block;
       font-family: var(--mono);
-      font-size: 9px;
-      letter-spacing: 0.08em;
+      font-size: 10px;
+      color: var(--brass-text);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--brass);
       vertical-align: super;
       line-height: 1;
     }
@@ -1993,7 +1995,7 @@
     .pattern-card:nth-child(1) { transform: rotate(-1.1deg) translateX(-6px); }
     .pattern-card:nth-child(2) { transform: rotate(0.6deg) translateX(10px); }
     .pattern-card:nth-child(3) { transform: rotate(-0.4deg) translateX(-2px); }
-    .pattern-card .note { display: inline-block; font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brass); vertical-align: super; line-height: 1; }
+    .pattern-card .note { display: inline-block; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brass-text); vertical-align: super; line-height: 1; }
     .pattern-meta {
       display: block;
       font-family: var(--mono);
@@ -2111,6 +2113,83 @@
     .footer-wordmark span { color: var(--accent); }
 
     /* 3.4 Print — saved-as-PDF pages match the proposal look */
+    /* 3.1 Critique fixes — final CTA echo, FAQ reveal, mobile comparison cards, footer hit areas */
+    .cta-echo {
+      margin: 30px auto 0;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 21px;
+      color: var(--text-dim);
+      text-align: center;
+    }
+    .cta-echo span {
+      display: block;
+      margin-top: 7px;
+      font-family: var(--mono);
+      font-style: normal;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .faq-more {
+      display: none;
+      margin: 20px auto 0;
+      padding: 12px 26px;
+      font-family: var(--mono);
+      font-size: 13px;
+      color: var(--accent);
+      background: none;
+      border: 1px solid var(--border-accent);
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .comparison-cards { display: none; }
+    footer .footer-right a, .footer-legal a {
+      display: inline-block;
+      padding: 12px 6px;
+      margin: -12px -2px;
+    }
+    .footer-legal a { padding: 14px 6px; margin: -14px -2px; }
+    @media (max-width: 768px) {
+      .comparison-wrap, .comparison-swipe-hint { display: none; }
+      .comparison-cards { display: block; }
+      .comp-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 16px 18px;
+        margin-bottom: 12px;
+        box-shadow: var(--shadow-s);
+      }
+      .comp-card.us { border: 1.5px solid var(--accent); }
+      .comp-card h4, .comp-card summary {
+        font-family: var(--mono);
+        font-size: 13px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text);
+        margin: 0 0 4px;
+        cursor: pointer;
+        padding: 6px 0;
+      }
+      .comp-card.us h4 { color: var(--accent); cursor: default; }
+      .comp-row {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 9px 0;
+        font-size: 13.5px;
+        line-height: 1.45;
+        border-top: 1px dashed var(--border);
+      }
+      .comp-row b { flex: 0 0 44%; font-weight: 600; color: var(--text-dim); }
+      .comp-row span { text-align: right; color: var(--text-muted); }
+      .comp-card.us .comp-row span { color: var(--text); }
+      .faq-list:not(.expanded) .faq-item:nth-child(n+6) { display: none; }
+      .faq-more { display: block; }
+    }
+
     @media print {
       body::after { display: none; }
       nav, .mobile-menu, .hero-ctas, .pricing-cta, .about-cta, .scorecard-container, .skip-link { display: none !important; }
@@ -2172,7 +2251,7 @@
             <span>LinkedIn &middot; 1st message</span>
           </div>
           <div class="dossier-body">
-            <p><span class="redact" style="width:5ch" aria-label="name redacted"></span> &mdash; saw the <span class="sig">growth numbers<span class="note">&nbsp;&darr;public data</span></span> while most regional HR-tech stalled. With <span class="redact" style="width:4ch" aria-label="client redacted"></span>, <span class="redact" style="width:6ch" aria-label="client redacted"></span> and <span class="redact" style="width:5ch" aria-label="client redacted"></span> <span class="sig">on the client list<span class="note">&nbsp;&darr;their site</span></span>, the usual next question is <span class="sig">which market opens next<span class="note">&nbsp;&darr;asked directly</span></span>.</p>
+            <p><span class="redact" style="width:5ch" aria-label="name redacted"></span> &mdash; saw the <span class="sig">growth numbers</span><span class="note">&nbsp;&darr;public data</span> while most regional HR-tech stalled. With <span class="redact" style="width:4ch" aria-label="client redacted"></span>, <span class="redact" style="width:6ch" aria-label="client redacted"></span> and <span class="redact" style="width:5ch" aria-label="client redacted"></span> <span class="sig">on the client list</span><span class="note">&nbsp;&darr;their site</span>, the usual next question is <span class="sig">which market opens next</span><span class="note">&nbsp;&darr;asked directly</span>.</p>
           </div>
           <figcaption class="dossier-reply">
             <span class="dossier-reply-label">Reply &middot; same morning</span>
@@ -2275,7 +2354,7 @@
         <div class="pattern-stack fade-up" aria-label="The pattern library: anonymized fragments of messages that booked meetings">
           <div class="pattern-card">
             <span class="pattern-meta">LinkedIn &middot; creator marketing &middot; replied</span>
-            <p>&hellip;the <span class="redact" style="width:4ch" aria-label="campaign redacted"></span> campaign from <span class="sig-s">the podcast<span class="note">&nbsp;&darr;heard it</span></span> &mdash; that budget wouldn&rsquo;t buy ten billboards in Zagreb, and it sold out everything. With <span class="sig-s">80+ brands in 20 markets</span>, do new ones come from direct sales or do results sell for you&hellip;</p>
+            <p>&hellip;the <span class="redact" style="width:4ch" aria-label="campaign redacted"></span> campaign from <span class="sig-s">the podcast</span><span class="note">&nbsp;&darr;heard it</span> &mdash; that budget wouldn&rsquo;t buy ten billboards in Zagreb, and it sold out everything. With <span class="sig-s">80+ brands in 20 markets</span>, do new ones come from direct sales or do results sell for you&hellip;</p>
           </div>
           <div class="pattern-card">
             <span class="pattern-meta">LinkedIn &middot; fintech</span>
@@ -2283,7 +2362,7 @@
           </div>
           <div class="pattern-card">
             <span class="pattern-meta">LinkedIn &middot; food &amp; agri &middot; client build</span>
-            <p>&hellip;the 12th <span class="redact" style="width:6ch" aria-label="company redacted"></span> sustainability report just dropped &mdash; <span class="sig-s">26.64% water reduction<span class="note">&nbsp;&darr;their report</span></span> year-over-year, 100% ingredient certification due in months. The <span class="sig-s">last 22% on the supplier side</span> is the part the badge doesn&rsquo;t tell you about&hellip;</p>
+            <p>&hellip;the 12th <span class="redact" style="width:6ch" aria-label="company redacted"></span> sustainability report just dropped &mdash; <span class="sig-s">26.64% water reduction</span><span class="note">&nbsp;&darr;their report</span> year-over-year, 100% ingredient certification due in months. The <span class="sig-s">last 22% on the supplier side</span> is the part the badge doesn&rsquo;t tell you about&hellip;</p>
           </div>
         </div>
       </div>
@@ -2291,9 +2370,9 @@
       <div class="results-box fade-up">
         <div class="results-stats">
           <div>
-            <div class="result-num">6&ndash;10%</div>
-            <div class="result-label">Target Reply Rate</div>
-            <div class="result-context">Signal-based outbound vs 1&ndash;3% industry avg</div>
+            <div class="result-num">100s</div>
+            <div class="result-label">Real Conversations</div>
+            <div class="result-context">Every sequence draws from them &mdash; none from templates</div>
           </div>
           <div>
             <div class="result-num">5</div>
@@ -2769,6 +2848,7 @@
           </div>
         </div>
       </div>
+      <button type="button" class="faq-more" onclick="document.querySelector('.faq-list').classList.add('expanded'); this.remove();">More questions +</button>
     </div>
   </section>
 
@@ -2781,6 +2861,7 @@
         <a href="#scorecard" class="btn-primary">Take the Scorecard First</a>
         <a href="https://calendly.com/davidm98/meet-with-david" target="_blank" rel="noopener noreferrer" class="btn-secondary">Book a 15-min call</a>
       </div>
+      <p class="cta-echo fade-up">&ldquo;Call me, let&rsquo;s meet.&rdquo;<span>&mdash; same-morning reply to one cold message</span></p>
     </div>
   </section>
 
@@ -3327,6 +3408,28 @@
           plausibleEvent('scorecard_cta_nav');
         }
       });
+
+      // Mobile comparison cards — transpose the table into per-vendor cards (GTMiQ open, rest collapsed)
+      (function() {
+        const tbl = document.querySelector('.comparison-table');
+        if (!tbl) return;
+        const heads = Array.from(tbl.querySelectorAll('thead th')).map(function(th) { return th.textContent.trim(); });
+        const rows = Array.from(tbl.querySelectorAll('tbody tr')).map(function(tr) {
+          return Array.from(tr.children).map(function(td) { return td.textContent.trim().replace(/\s+/g, ' '); });
+        });
+        const wrap = document.createElement('div');
+        wrap.className = 'comparison-cards';
+        for (let c = 1; c < heads.length; c++) {
+          const inner = rows.map(function(r) {
+            return '<div class="comp-row"><b>' + r[0] + '</b><span>' + r[c] + '</span></div>';
+          }).join('');
+          wrap.insertAdjacentHTML('beforeend', c === 1
+            ? '<div class="comp-card us"><h4>' + heads[c] + '</h4>' + inner + '</div>'
+            : '<details class="comp-card"><summary>' + heads[c] + '</summary>' + inner + '</details>');
+        }
+        const anchor = tbl.closest('.comparison-wrap');
+        if (anchor) anchor.insertAdjacentElement('afterend', wrap);
+      })();
 
       // Stat count-ups — animate numeric tokens in place, once, motion-safe
       if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
