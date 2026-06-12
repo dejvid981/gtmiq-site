@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>og</title>
+<link rel="preconnect" href="https://fonts.gstatic.com/">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F5EFE6; --card: #FFFFFF; --accent: #0F3CC8; --brass: #B8935E;
+    --brass-soft: rgba(184,147,94,0.45); --text: #0A1929; --muted: #555E6A;
+    --border: rgba(10,25,41,0.12);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    width: 1200px; height: 630px; background: var(--bg);
+    font-family: 'DM Sans', sans-serif; color: var(--text);
+    display: flex; align-items: center; gap: 48px;
+    padding: 0 64px; position: relative; overflow: hidden;
+  }
+  body::after {
+    content: ""; position: fixed; inset: 0; pointer-events: none; opacity: 0.035;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .left { flex: 1.05; }
+  .wordmark { font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 30px; letter-spacing: -0.5px; margin-bottom: 34px; }
+  .wordmark span { color: var(--accent); }
+  .kicker {
+    font-family: 'JetBrains Mono', monospace; font-size: 15px; text-transform: uppercase;
+    letter-spacing: 0.16em; color: var(--accent); display: flex; align-items: center; gap: 14px; margin-bottom: 22px;
+  }
+  .kicker::before { content: ""; width: 30px; height: 2px; background: var(--brass); }
+  h1 { font-family: 'Instrument Serif', serif; font-weight: 400; font-size: 64px; line-height: 1.08; margin-bottom: 28px; }
+  h1 em { color: var(--accent); border-bottom: 4px solid var(--brass); }
+  .stats { display: flex; gap: 36px; font-family: 'JetBrains Mono', monospace; }
+  .stat b { display: block; font-size: 26px; font-weight: 700; color: var(--accent); }
+  .stat i { display: block; font-style: normal; font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-top: 4px; }
+  .dossier {
+    flex: 0.95; background: var(--card); border: 1px solid var(--border); border-radius: 16px;
+    box-shadow: 0 2px 4px rgba(10,25,41,0.06), 0 24px 56px rgba(10,25,41,0.13);
+    transform: rotate(1.6deg); position: relative; max-width: 470px;
+  }
+  .d-head {
+    padding: 18px 26px 14px; border-bottom: 1px solid var(--border);
+    font-family: 'JetBrains Mono', monospace; font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted);
+  }
+  .stamp {
+    position: absolute; top: 14px; right: 14px; font-family: 'JetBrains Mono', monospace; font-size: 10px;
+    text-transform: uppercase; letter-spacing: 0.14em; color: var(--brass);
+    border: 1px solid var(--brass-soft); border-radius: 3px; padding: 4px 8px; transform: rotate(5deg); opacity: 0.85;
+  }
+  .d-body { padding: 22px 26px 8px; font-size: 17px; line-height: 2.0; }
+  .redact { display: inline-block; height: 0.78em; background: var(--text); border-radius: 2px; opacity: 0.85; transform: translateY(0.07em); }
+  .sig { text-decoration: underline; text-decoration-color: var(--brass); text-decoration-thickness: 2.5px; text-underline-offset: 4px; }
+  .note { display: inline-block; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--brass); vertical-align: super; }
+  .reply { margin: 18px 26px 24px; padding: 16px 20px; background: rgba(15,60,200,0.07); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; }
+  .r-label { font-family: 'JetBrains Mono', monospace; font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--accent); margin-bottom: 6px; }
+  .r-quote { font-family: 'Instrument Serif', serif; font-style: italic; font-size: 26px; }
+  .r-attr { font-size: 13px; color: var(--muted); margin-top: 6px; }
+</style>
+</head>
+<body>
+  <div class="left">
+    <div class="wordmark">GTM<span>iQ</span></div>
+    <div class="kicker">Signal-based outbound</div>
+    <h1>Templates Don't Convert.<br>Real <em>Signals</em> Do.</h1>
+    <div class="stats">
+      <div class="stat"><b>6–10%</b><i>target reply rate</i></div>
+      <div class="stat"><b>~4 wks</b><i>to build</i></div>
+      <div class="stat"><b>2.5 yr</b><i>pattern library</i></div>
+    </div>
+  </div>
+  <div class="dossier">
+    <div class="stamp">Signal-referenced</div>
+    <div class="d-head">LinkedIn · 1st message</div>
+    <div class="d-body">
+      <span class="redact" style="width:5ch"></span> — saw the <span class="sig">growth numbers<span class="note">&nbsp;↓public data</span></span> while regional HR-tech stalled. With <span class="redact" style="width:6ch"></span> <span class="sig">on the client list<span class="note">&nbsp;↓their site</span></span>, the usual question is <span class="sig">which market opens next</span>.
+    </div>
+    <div class="reply">
+      <div class="r-label">Reply · same morning</div>
+      <div class="r-quote">"Call me, let's meet."</div>
+      <div class="r-attr">— CEO, Croatian HR-SaaS</div>
+    </div>
+  </div>
+</body>
+</html>

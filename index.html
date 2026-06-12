@@ -237,20 +237,25 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a0b;
-      --bg-card: #111113;
-      --bg-card-hover: #1a1a1d;
-      --accent: #4ade80;
-      --accent-dim: rgba(74,222,128,0.12);
-      --accent-glow: rgba(74,222,128,0.25);
-      --text: #e4e4e7;
-      --text-dim: #a1a1aa;
-      --text-muted: #8a8a93;
-      --border: rgba(255,255,255,0.06);
-      --border-accent: rgba(74,222,128,0.2);
-      --red: #f87171;
-      --yellow: #fbbf24;
-      --blue: #60a5fa;
+      /* Ascendia brand system — Paper / Ink / Cobalt / Brass */
+      --bg: #F5EFE6;            /* Paper — warm off-white surface */
+      --bg-card: #FFFFFF;       /* clean white cards lifted off Paper */
+      --bg-card-hover: #FBF6EE; /* faint paper tint on hover */
+      --accent: #0F3CC8;        /* Cobalt — primary brand */
+      --accent-dim: rgba(15,60,200,0.07);
+      --accent-glow: rgba(15,60,200,0.14);
+      --brass: #B8935E;         /* Brass — hairline rules only */
+      --text: #0A1929;          /* Ink — body text */
+      --text-dim: #3F4D5C;      /* dimmed ink, readable on Paper */
+      --text-muted: #555E6A;    /* muted ink — AA-compliant on Paper */
+      --border: rgba(10,25,41,0.12);
+      --border-accent: rgba(15,60,200,0.28);
+      --red: #c0392b;
+      --yellow: #b8860b;
+      --blue: #1f5fbf;
+      --brass-soft: rgba(184,147,94,0.45);
+      --shadow-s: 0 1px 2px rgba(10,25,41,0.05), 0 8px 24px rgba(10,25,41,0.07);
+      --shadow-m: 0 2px 4px rgba(10,25,41,0.06), 0 16px 40px rgba(10,25,41,0.10);
       --sans: 'DM Sans', -apple-system, sans-serif;
       --mono: 'JetBrains Mono', monospace;
       --serif: 'Instrument Serif', serif;
@@ -306,6 +311,28 @@
       overflow-x: hidden;
     }
 
+    /* Paper grain — uniform print texture over everything, non-interactive */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 2000;
+      opacity: 0.032;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    html { scrollbar-width: thin; scrollbar-color: rgba(10,25,41,0.28) transparent; }
+    ::-webkit-scrollbar { width: 10px; }
+    ::-webkit-scrollbar-thumb { background: rgba(10,25,41,0.22); border-radius: 5px; }
+    ::-webkit-scrollbar-thumb:hover { background: rgba(10,25,41,0.35); }
+
     /* NAV */
     nav {
       position: fixed;
@@ -317,7 +344,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(10,10,11,0.85);
+      background: rgba(245,239,230,0.88);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
@@ -326,10 +353,14 @@
       font-family: var(--mono);
       font-size: 20px;
       font-weight: 700;
-      color: var(--accent);
+      color: var(--text);
       text-decoration: none;
       letter-spacing: -0.5px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
     }
+    .nav-logo .nav-logo-text { line-height: 1; }
 
     .nav-links {
       display: flex;
@@ -410,11 +441,12 @@
       text-transform: uppercase;
       letter-spacing: 1.2px;
       border-bottom: 1px solid var(--border);
-      background: rgba(255,255,255,0.02);
+      background: rgba(10,25,41,0.03);
     }
 
     .comparison-table thead th.comparison-col-us {
-      color: var(--accent);
+      color: var(--bg);
+      background: var(--accent);
       font-weight: 700;
     }
 
@@ -443,10 +475,10 @@
     }
 
     .comparison-cell-us {
-      color: #fff;
-      font-weight: 500;
-      background: var(--accent-dim);
-      border-left: 2px solid var(--accent);
+      color: var(--text);
+      font-weight: 600;
+      background: rgba(15,60,200,0.12);
+      border-left: 3px solid var(--accent);
     }
 
     .comparison-sub {
@@ -539,7 +571,7 @@
       font-size: clamp(40px, 6vw, 68px);
       font-weight: 400;
       line-height: 1.1;
-      color: #fff;
+      color: var(--text);
       margin-bottom: 24px;
       letter-spacing: -1px;
     }
@@ -577,30 +609,31 @@
       cursor: pointer;
     }
 
-    .btn-primary:hover { opacity: 0.9; transform: translateY(-1px); }
+    .btn-primary:hover { background: #0C2FA0; box-shadow: 0 6px 18px rgba(15,60,200,0.28); transform: translateY(-1px); }
 
     .btn-secondary {
-      background: transparent;
+      background: var(--bg-card);
       color: var(--text);
       padding: 14px 32px;
       border-radius: 8px;
       font-size: 15px;
       font-weight: 500;
       text-decoration: none;
-      border: 1px solid var(--border);
+      border: 1px solid rgba(10,25,41,0.18);
+      box-shadow: var(--shadow-s);
       transition: all 0.2s;
     }
 
-    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); box-shadow: var(--shadow-m); }
 
     /* STATS BAR */
     .stats-bar {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: 14px;
+      box-shadow: var(--shadow-s);
       overflow: hidden;
       margin-top: 60px;
       max-width: 800px;
@@ -609,9 +642,19 @@
     }
 
     .stat-item {
-      background: var(--bg-card);
-      padding: 24px;
+      padding: 28px 24px;
       text-align: center;
+      position: relative;
+    }
+
+    .stat-item + .stat-item::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 22%;
+      height: 56%;
+      width: 1px;
+      background: var(--border);
     }
 
     .stat-num {
@@ -660,15 +703,16 @@
 
     .logo-item {
       font-family: var(--mono);
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--text-muted);
-      opacity: 0.65;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      opacity: 0.45;
       transition: opacity 0.3s;
-      letter-spacing: 0.5px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
     }
 
-    .logo-item:hover { opacity: 0.9; }
+    .logo-item:hover { opacity: 1; }
 
     /* SECTIONS */
     section {
@@ -682,12 +726,35 @@
       letter-spacing: 2px;
       color: var(--accent);
       margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::before {
+      content: "";
+      display: inline-block;
+      width: 26px;
+      height: 1px;
+      background: var(--brass);
+      flex-shrink: 0;
+    }
+
+    .section-label[style*="center"] { justify-content: center; }
+
+    .section-label[style*="center"]::after {
+      content: "";
+      display: inline-block;
+      width: 26px;
+      height: 1px;
+      background: var(--brass);
+      flex-shrink: 0;
     }
 
     .section-title {
       font-family: var(--serif);
       font-size: clamp(32px, 4vw, 48px);
-      color: #fff;
+      color: var(--text);
       margin-bottom: 20px;
       line-height: 1.15;
     }
@@ -717,23 +784,26 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 32px;
+      box-shadow: var(--shadow-s);
       transition: all 0.3s;
     }
 
     .problem-card:hover {
       border-color: var(--border-accent);
       transform: translateY(-2px);
+      box-shadow: var(--shadow-m);
     }
 
-    .problem-card.bad { border-left: 3px solid var(--red); }
+    .problem-card.bad { border-left: 2px solid var(--brass-soft); }
     .problem-card.good { border-left: 3px solid var(--accent); }
     .problem-card.resolution {
       grid-column: 1 / -1;
       padding: 40px 48px;
-      background: linear-gradient(135deg, var(--accent-dim) 0%, var(--bg-card) 100%);
+      background: var(--bg-card);
       border: 1px solid var(--border-accent);
       border-left: 3px solid var(--accent);
       margin-top: 8px;
+      box-shadow: var(--shadow-m);
     }
     .problem-card.resolution h3 {
       font-size: 22px;
@@ -747,12 +817,12 @@
 
     .problem-card h3 {
       font-size: 18px;
-      color: #fff;
+      color: var(--text);
       margin-bottom: 12px;
       font-weight: 600;
     }
 
-    .problem-card.bad h3 { color: var(--red); }
+    .problem-card.bad h3 { color: var(--text); }
     .problem-card.good h3 { color: var(--accent); }
 
     .problem-card p {
@@ -769,6 +839,7 @@
       padding: 48px;
       text-align: center;
       margin-top: 48px;
+      box-shadow: var(--shadow-m);
     }
 
     .results-stats {
@@ -803,7 +874,7 @@
       font-style: italic;
       margin-top: 32px;
       padding-top: 32px;
-      border-top: 1px solid var(--border);
+      border-top: 1px solid var(--brass-soft);
     }
 
     /* HOW IT WORKS */
@@ -821,25 +892,26 @@
       border: 1px solid var(--border);
       border-radius: 12px;
       padding: 32px;
+      box-shadow: var(--shadow-s);
       transition: all 0.3s;
     }
 
     .step:hover {
       border-color: var(--border-accent);
       transform: translateY(-2px);
+      box-shadow: var(--shadow-m);
     }
 
     .step-num {
       font-family: var(--mono);
       font-size: 32px;
       font-weight: 700;
-      color: var(--accent);
-      opacity: 0.4;
+      color: var(--brass);
     }
 
     .step h3 {
       font-size: 18px;
-      color: #fff;
+      color: var(--text);
       margin-bottom: 8px;
       font-weight: 600;
     }
@@ -881,7 +953,7 @@
     }
 
     .qualifier-col.yes h3 { color: var(--accent); }
-    .qualifier-col.no h3 { color: var(--red); }
+    .qualifier-col.no h3 { color: var(--text); }
 
     .qualifier-col ul {
       list-style: none;
@@ -921,6 +993,7 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 48px;
+      box-shadow: var(--shadow-m);
     }
 
     .scorecard-progress-label {
@@ -953,7 +1026,7 @@
 
     .scorecard-question {
       font-size: 20px;
-      color: #fff;
+      color: var(--text);
       font-weight: 600;
       margin-bottom: 8px;
     }
@@ -971,7 +1044,7 @@
     }
 
     .scorecard-option {
-      background: rgba(255,255,255,0.03);
+      background: rgba(10,25,41,0.03);
       border: 1px solid var(--border);
       border-radius: 8px;
       padding: 16px 20px;
@@ -1070,7 +1143,7 @@
     .gate-preview-title {
       font-family: var(--serif);
       font-size: 24px;
-      color: #fff;
+      color: var(--text);
       margin-bottom: 8px;
       font-weight: 500;
     }
@@ -1117,7 +1190,7 @@
 
     .gate-form-title {
       font-size: 18px;
-      color: #fff;
+      color: var(--text);
       font-weight: 600;
       margin-bottom: 8px;
     }
@@ -1132,7 +1205,7 @@
     .email-gate input {
       width: 100%;
       padding: 14px 16px;
-      background: rgba(255,255,255,0.05);
+      background: rgba(10,25,41,0.03);
       border: 1px solid var(--border);
       border-radius: 8px;
       color: var(--text);
@@ -1179,7 +1252,7 @@
 
     .score-title {
       font-size: 22px;
-      color: #fff;
+      color: var(--text);
       font-weight: 600;
       text-align: center;
       margin-bottom: 8px;
@@ -1209,7 +1282,7 @@
     .category-track {
       flex: 1;
       height: 8px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(10,25,41,0.10);
       border-radius: 4px;
       overflow: hidden;
     }
@@ -1279,7 +1352,7 @@
     .results-quote {
       font-family: var(--serif);
       font-size: 18px;
-      color: #fff;
+      color: var(--text);
       font-style: italic;
       margin-bottom: 10px;
       line-height: 1.4;
@@ -1454,12 +1527,12 @@
 
     .case-study {
       background: var(--bg-card);
-      border: 1px solid var(--border-accent);
-      border-left: 3px solid var(--accent);
+      border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 32px 40px;
+      padding: 36px 44px;
       margin: 32px auto 0;
       max-width: 760px;
+      box-shadow: var(--shadow-m);
     }
 
     .case-study-label {
@@ -1475,7 +1548,7 @@
       font-family: var(--serif);
       font-size: clamp(28px, 4vw, 36px);
       line-height: 1.3;
-      color: #fff;
+      color: var(--text);
       margin-bottom: 24px;
       font-style: italic;
       position: relative;
@@ -1497,12 +1570,14 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 40px;
+      box-shadow: var(--shadow-s);
       transition: all 0.3s;
     }
 
     .pricing-card.featured {
       border-color: var(--accent);
       position: relative;
+      box-shadow: var(--shadow-m);
     }
 
     .pricing-card.featured::before {
@@ -1522,11 +1597,12 @@
     .pricing-card:hover {
       border-color: var(--border-accent);
       transform: translateY(-4px);
+      box-shadow: var(--shadow-m);
     }
 
     .pricing-name {
       font-size: 20px;
-      color: #fff;
+      color: var(--text);
       font-weight: 600;
       margin-bottom: 4px;
     }
@@ -1625,7 +1701,7 @@
       align-items: center;
       cursor: pointer;
       font-size: 16px;
-      color: #fff;
+      color: var(--text);
       font-weight: 500;
       font-family: var(--sans);
       text-align: left;
@@ -1668,7 +1744,7 @@
     .bottom-cta h2 {
       font-family: var(--serif);
       font-size: clamp(32px, 4vw, 48px);
-      color: #fff;
+      color: var(--text);
       margin-bottom: 16px;
     }
 
@@ -1754,7 +1830,7 @@
       }
       .mobile-menu { display: block; }
       .hero { padding: 120px 0 60px; }
-      .stats-bar { grid-template-columns: repeat(2, 1fr); }
+      .stats-bar { grid-template-columns: 1fr; }
       .problem-grid { grid-template-columns: 1fr; }
       .step { grid-template-columns: 1fr; }
       .step-num { font-size: 24px; }
@@ -1772,6 +1848,263 @@
       .logo-item { font-size: 14px; }
       footer { flex-direction: column; gap: 16px; text-align: center; }
     }
+
+    /* ===================== PREMIUM PASS — PHASES 1–3 ===================== */
+
+    /* 1.2 Wordmark */
+    .nav-logo-iq { color: var(--accent); }
+
+    /* 1.1 Hero grid */
+    .hero-grid { display: grid; gap: 48px; align-items: center; }
+    @media (min-width: 1100px) {
+      .hero-grid { grid-template-columns: 1.08fr 0.92fr; text-align: left; }
+      .hero-grid .subline { margin-left: 0; margin-right: 0; }
+      .hero-grid .hero-ctas { justify-content: flex-start; }
+    }
+
+    /* 1.1 The Signal Dossier */
+    .dossier {
+      position: relative;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: var(--shadow-m);
+      margin: 0 auto;
+      max-width: 480px;
+      transform: rotate(1.2deg);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      text-align: left;
+    }
+    .dossier:hover { transform: rotate(0deg); }
+
+    .dossier-stamp {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--brass);
+      border: 1px solid var(--brass-soft);
+      border-radius: 3px;
+      padding: 3px 7px;
+      transform: rotate(5deg);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .dossier-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 22px 12px;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+    }
+
+    .dossier-body { padding: 20px 22px 4px; }
+    .dossier-body p { font-size: 14.5px; line-height: 1.95; color: var(--text); }
+
+    .redact {
+      display: inline-block;
+      height: 0.78em;
+      background: var(--text);
+      border-radius: 2px;
+      opacity: 0.85;
+      transform: translateY(0.06em);
+    }
+
+    .sig {
+      text-decoration: underline;
+      text-decoration-color: var(--brass);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 4px;
+    }
+
+    .sig .note {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brass);
+      vertical-align: super;
+      line-height: 1;
+    }
+
+    .dossier-reply {
+      display: block;
+      margin: 16px 22px 20px;
+      padding: 14px 18px;
+      background: var(--accent-dim);
+      border-left: 3px solid var(--accent);
+      border-radius: 0 8px 8px 0;
+    }
+    .dossier-reply-label {
+      display: block;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+    .dossier-reply-quote {
+      display: block;
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 22px;
+      line-height: 1.2;
+      color: var(--text);
+    }
+    .dossier-reply-attr {
+      display: block;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    /* 1.4 Proof pattern library */
+    .proof-grid { display: grid; gap: 40px; }
+    @media (min-width: 1000px) {
+      .proof-grid { grid-template-columns: 1.05fr 0.95fr; align-items: center; }
+      .proof-grid .section-subtitle { margin-bottom: 0; }
+    }
+    .pattern-stack { display: grid; gap: 14px; max-width: 520px; }
+    .pattern-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 20px;
+      box-shadow: var(--shadow-s);
+    }
+    .pattern-card:nth-child(1) { transform: rotate(-1.1deg) translateX(-6px); }
+    .pattern-card:nth-child(2) { transform: rotate(0.6deg) translateX(10px); }
+    .pattern-card:nth-child(3) { transform: rotate(-0.4deg) translateX(-2px); }
+    .pattern-card .note { display: inline-block; font-family: var(--mono); font-size: 9px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brass); vertical-align: super; line-height: 1; }
+    .pattern-meta {
+      display: block;
+      font-family: var(--mono);
+      font-size: 9.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .pattern-card p { font-size: 13.5px; line-height: 1.7; color: var(--text-dim); }
+    .sig-s {
+      text-decoration: underline;
+      text-decoration-color: var(--brass);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    /* 1.3 About portrait slot (swap .about-portrait-frame content for <img class="about-portrait-img"> when photo exists) */
+    .about-layout { display: grid; gap: 36px; }
+    @media (min-width: 900px) { .about-layout { grid-template-columns: 230px 1fr; align-items: start; } }
+    .about-portrait-frame {
+      aspect-ratio: 4 / 5;
+      max-width: 230px;
+      margin: 0 auto;
+      border: 1px solid var(--brass-soft);
+      border-radius: 12px;
+      background: linear-gradient(165deg, var(--bg-card) 0%, var(--bg-card-hover) 100%);
+      box-shadow: var(--shadow-s);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+    .about-portrait-mark {
+      font-family: var(--mono);
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: -0.5px;
+      color: var(--text);
+    }
+    .about-portrait-mark span { color: var(--accent); }
+    .about-portrait-caption {
+      font-family: var(--mono);
+      font-size: 10px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+    .about-portrait-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 11px;
+      filter: grayscale(1) sepia(0.08) contrast(1.02);
+    }
+
+    /* 2.1 Hero load choreography (entrance only — fill backwards releases to natural state) */
+    @media (prefers-reduced-motion: no-preference) {
+      .hero-badge, .hero h1, .hero .subline, .hero-ctas, .dossier, .stats-bar {
+        animation: heroIn 0.55s cubic-bezier(0.2, 0.7, 0.3, 1) backwards;
+      }
+      .hero-badge { animation-delay: 0.05s; }
+      .hero h1 { animation-delay: 0.14s; }
+      .hero .subline { animation-delay: 0.26s; }
+      .hero-ctas { animation-delay: 0.38s; }
+      .dossier { animation-delay: 0.5s; }
+      .stats-bar { animation-delay: 0.62s; }
+
+      /* 2.3 brass underline draws under the italic word after load */
+      .hero h1 em { position: relative; }
+      .hero h1 em::after {
+        content: "";
+        position: absolute;
+        left: 2%;
+        right: 4%;
+        bottom: 4%;
+        height: 3px;
+        background: var(--brass);
+        transform: scaleX(0);
+        transform-origin: left;
+        animation: drawLine 0.6s ease-out 1.05s forwards;
+      }
+    }
+    @keyframes heroIn { from { opacity: 0; transform: translateY(14px); } }
+    @keyframes drawLine { to { transform: scaleX(1); } }
+
+    /* 2.4 Scorecard dossier framing */
+    .scorecard-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-family: var(--mono);
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      padding-bottom: 14px;
+      margin-bottom: 28px;
+      border-bottom: 1px solid var(--brass-soft);
+    }
+    .scorecard-head span:first-child { color: var(--brass); }
+    .progress-dot { width: 20px; height: 3px; border-radius: 2px; }
+
+    /* 3.3 Footer */
+    footer { border-top: 1px solid var(--brass-soft); }
+    .footer-wordmark { font-family: var(--mono); font-weight: 700; font-size: 15px; color: var(--text); }
+    .footer-wordmark span { color: var(--accent); }
+
+    /* 3.4 Print — saved-as-PDF pages match the proposal look */
+    @media print {
+      body::after { display: none; }
+      nav, .mobile-menu, .hero-ctas, .pricing-cta, .about-cta, .scorecard-container, .skip-link { display: none !important; }
+      body { background: #fff; }
+      section { padding: 32px 0; }
+      .dossier, .pattern-card { transform: none; box-shadow: none; }
+      * { animation: none !important; transition: none !important; }
+    }
   </style>
 </head>
 <body>
@@ -1780,7 +2113,9 @@
 
   <!-- NAV -->
   <nav aria-label="Main navigation">
-    <a href="#" class="nav-logo">GTMiQ</a>
+    <a href="#" class="nav-logo" aria-label="GTMiQ — an Ascendia company">
+      <span class="nav-logo-text">GTM<span class="nav-logo-iq">iQ</span></span>
+    </a>
     <div class="nav-links" id="navLinks" role="menubar">
       <a href="#how-it-works">How It Works</a>
       <a href="#scorecard">Scorecard</a>
@@ -1800,12 +2135,31 @@
   <!-- HERO -->
   <section class="hero">
     <div class="container">
-      <div class="hero-badge"><span class="pulse"></span> Taking <span id="bookingMonth">new</span> bookings</div>
-      <h1>Templates Don't Convert.<br>Real <em>Signals</em> Do.</h1>
-      <p class="subline">Cold outbound that references a real fact about the prospect &mdash; their growth rate, a specific customer, a strategic move. Built and documented in ~4 weeks for B2B SaaS scaling sales into new regions.</p>
-      <div class="hero-ctas">
-        <a href="#scorecard" class="btn-primary">Score Your Pipeline</a>
-        <a href="https://calendly.com/davidm98/meet-with-david" target="_blank" rel="noopener noreferrer" class="btn-secondary">Book a 15-min call</a>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <div class="hero-badge"><span class="pulse"></span> Taking <span id="bookingMonth">new</span> bookings</div>
+          <h1>Templates Don't Convert.<br>Real <em>Signals</em> Do.</h1>
+          <p class="subline">Cold outbound that references a real fact about the prospect &mdash; their growth rate, a specific customer, a strategic move. Built and documented in ~4 weeks for B2B SaaS scaling sales into new regions.</p>
+          <div class="hero-ctas">
+            <a href="#scorecard" class="btn-primary">Score Your Pipeline</a>
+            <a href="https://calendly.com/davidm98/meet-with-david" target="_blank" rel="noopener noreferrer" class="btn-secondary">Book a 15-min call</a>
+          </div>
+        </div>
+
+        <figure class="dossier" aria-label="Specimen of a signal-based cold message: identifying details redacted, research sources annotated, with the real reply it earned">
+          <div class="dossier-stamp" aria-hidden="true">Signal-referenced</div>
+          <div class="dossier-head">
+            <span>LinkedIn &middot; 1st message</span>
+          </div>
+          <div class="dossier-body">
+            <p><span class="redact" style="width:5ch" aria-label="name redacted"></span> &mdash; saw the <span class="sig">growth numbers<span class="note">&nbsp;&darr;public data</span></span> while most regional HR-tech stalled. With <span class="redact" style="width:4ch" aria-label="client redacted"></span>, <span class="redact" style="width:6ch" aria-label="client redacted"></span> and <span class="redact" style="width:5ch" aria-label="client redacted"></span> <span class="sig">on the client list<span class="note">&nbsp;&darr;their site</span></span>, the usual next question is <span class="sig">which market opens next<span class="note">&nbsp;&darr;asked directly</span></span>.</p>
+          </div>
+          <figcaption class="dossier-reply">
+            <span class="dossier-reply-label">Reply &middot; same morning</span>
+            <span class="dossier-reply-quote">"Call me, let's meet."</span>
+            <span class="dossier-reply-attr">&mdash; CEO, Croatian HR-SaaS</span>
+          </figcaption>
+        </figure>
       </div>
 
       <div class="stats-bar">
@@ -1837,17 +2191,6 @@
         <span class="logo-item">Seedify</span>
         <span class="logo-item">Thespian</span>
         <span class="logo-item">Resomnium</span>
-        <span class="logo-item">Bitget</span>
-      </div>
-
-      <div class="case-study fade-up">
-        <div class="case-study-label">Recent Proof</div>
-        <p class="case-study-quote">"Call me, let's meet."</p>
-        <p class="case-study-attribution">
-          — reply from a <strong>Croatian HR-SaaS CEO</strong>
-          to <strong>one cold LinkedIn message</strong> that referenced his company's growth rate, named 3 of his enterprise clients,
-          and asked a question about his internationalization strategy. Every message this system sends works the same way.
-        </p>
       </div>
     </div>
   </div>
@@ -1906,7 +2249,23 @@
     <div class="container">
       <div class="section-label fade-up">Proof</div>
       <h2 class="section-title fade-up">Built On What Actually Booked Meetings</h2>
-      <p class="section-subtitle fade-up">GTMiQ runs on a private library of LinkedIn messages that booked meetings and call transcripts from conversations that closed &mdash; 2.5 years of pattern data encoded into Claude skills that now power every engagement. Every sequence I write for a client draws from what&rsquo;s actually worked across hundreds of real B2B conversations, not from templates that sound good in isolation.</p>
+      <div class="proof-grid">
+        <p class="section-subtitle fade-up">GTMiQ runs on a private library of LinkedIn messages that booked meetings and call transcripts from conversations that closed &mdash; 2.5 years of pattern data encoded into Claude skills that now power every engagement. Every sequence I write for a client draws from what&rsquo;s actually worked across hundreds of real B2B conversations, not from templates that sound good in isolation.</p>
+        <div class="pattern-stack fade-up" aria-label="The pattern library: anonymized, translated fragments — outbound that earned replies and inbound that became engagements">
+          <div class="pattern-card">
+            <span class="pattern-meta">LinkedIn &middot; creator marketing &middot; replied</span>
+            <p>&hellip;the <span class="redact" style="width:4ch" aria-label="campaign redacted"></span> campaign from <span class="sig-s">the podcast<span class="note">&nbsp;&darr;heard it</span></span> &mdash; that budget wouldn&rsquo;t buy ten billboards in Zagreb, and it sold out everything. With <span class="sig-s">80+ brands in 20 markets</span>, do new ones come from direct sales or do results sell for you&hellip;</p>
+          </div>
+          <div class="pattern-card">
+            <span class="pattern-meta">Inbound DM &middot; payments infrastructure &middot; &rarr; pilot client</span>
+            <p>&ldquo;&hellip;very open to talking about <span class="sig-s">improving our sales</span>. Did some digging &mdash; seems you have experience <span class="sig-s">building sales processes</span>?&rdquo;</p>
+          </div>
+          <div class="pattern-card">
+            <span class="pattern-meta">Inbound &middot; legal-tech &middot; co-founder search</span>
+            <p>&ldquo;&hellip;looking for a <span class="sig-s">co-founder to take over GTM and sales</span> in the demanding legal space &mdash; hoped you&rsquo;d have an idea who&rsquo;d be a fit.&rdquo;</p>
+          </div>
+        </div>
+      </div>
 
       <div class="results-box fade-up">
         <div class="results-stats">
@@ -2015,6 +2374,7 @@
       <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">10 questions. 2 minutes. Find out if your outbound is working — or just busy.</p>
 
       <div class="scorecard-container fade-up" id="scorecardBox">
+        <div class="scorecard-head" aria-hidden="true"><span>Pipeline audit</span><span>10 questions &middot; ~2 min</span></div>
         <!-- Progress counter -->
         <div class="scorecard-progress-label" id="progressLabel" aria-live="polite">Question 1 of 10</div>
         <!-- Progress dots -->
@@ -2074,7 +2434,7 @@
           <div id="categoryBars"></div>
 
           <div class="action-items" id="actionItems">
-            <h3 style="font-size:16px; color:#fff; margin-bottom:16px;">Your Action Plan</h3>
+            <h3 style="font-size:16px; color:var(--text); margin-bottom:16px;">Your Action Plan</h3>
           </div>
 
           <!-- Social proof on results -->
@@ -2246,10 +2606,18 @@
       <h2 class="section-title fade-up" style="text-align:center;">David Musta&#269;</h2>
 
       <div class="about-card fade-up">
+        <div class="about-layout">
+        <div class="about-portrait" aria-hidden="true">
+          <div class="about-portrait-frame">
+            <span class="about-portrait-mark">GTM<span>iQ</span></span>
+            <span class="about-portrait-caption">Zagreb &middot; CET</span>
+          </div>
+        </div>
         <div class="about-intro">
           <p>I run GTMiQ out of Zagreb. The methodology comes from 2.5 years of running B2B outreach on LinkedIn and studying transcripts from sales calls that actually closed &mdash; packaged into Claude skills that power every engagement. Every sequence GTMiQ writes draws from what&rsquo;s worked across hundreds of real conversations, not from templates. Now applied to B2B SaaS founders scaling sales into markets where they&rsquo;re unknown.</p>
           <p>The thesis: outbound isn&rsquo;t a spray-and-pray volume problem. It&rsquo;s a research problem. Every message should reference a real fact about the prospect. If your system can&rsquo;t do that at scale, you shouldn&rsquo;t be sending 1,000 emails a week.</p>
         </div>
+        </div><!-- /about-layout -->
 
         <div class="about-grid">
           <div class="about-fact">
@@ -2262,7 +2630,7 @@
           </div>
           <div class="about-fact">
             <div class="about-fact-label">Operator at</div>
-            <div class="about-fact-value">MasterBlox, Seedify, Thespian, Resomnium, Bitget</div>
+            <div class="about-fact-value">MasterBlox, Seedify, Thespian, Resomnium</div>
           </div>
           <div class="about-fact">
             <div class="about-fact-label">Based</div>
@@ -2397,7 +2765,7 @@
   <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="footer-left">
-      <div>GTMiQ &middot; David Musta&#269; &middot; Powered by signal intelligence, not spray and pray.</div>
+      <div><span class="footer-wordmark">GTM<span>iQ</span></span> &middot; David Musta&#269; &middot; Powered by signal intelligence, not spray and pray.</div>
       <div class="footer-legal">GTMiQ is a service of Ascendia &middot; Zagreb, HR &middot; <a href="https://ascendia.ceo" style="color:inherit;">ascendia.ceo</a></div>
     </div>
     <div class="footer-right">
@@ -2532,11 +2900,11 @@
     ];
 
     const gradeMap = [
-      { min: 85, grade: "A", title: "Pipeline Machine", desc: "You're ahead of 95% of startups at your stage. You don't need a rebuild \u2014 you need someone who can squeeze 20% more from what's already working. Book a call and I'll show you where the compounding gains are hiding.", color: "#4ade80" },
-      { min: 70, grade: "B", title: "Strong Foundation", desc: "The bones are good. Some gaps in automation and signal detection. A focused engagement could take you from working to scalable.", color: "#4ade80" },
-      { min: 55, grade: "C", title: "Patchwork Pipeline", desc: "You have pieces working but no system connecting them. Leads fall through cracks. Automation would close that gap quickly.", color: "#fbbf24" },
-      { min: 40, grade: "D", title: "Leaky Bucket", desc: "You're generating some activity but without scoring, signals, or sequences, most of it goes nowhere. Time to build the infrastructure.", color: "#f97316" },
-      { min: 0, grade: "F", title: "No Outbound System", desc: "You're running on founder hustle alone. This works until it doesn't \u2014 and it usually stops working right when you need pipeline most.", color: "#f87171" }
+      { min: 85, grade: "A", title: "Pipeline Machine", desc: "You're ahead of 95% of startups at your stage. You don't need a rebuild \u2014 you need someone who can squeeze 20% more from what's already working. Book a call and I'll show you where the compounding gains are hiding.", color: "#1E7A46" },
+      { min: 70, grade: "B", title: "Strong Foundation", desc: "The bones are good. Some gaps in automation and signal detection. A focused engagement could take you from working to scalable.", color: "#0F3CC8" },
+      { min: 55, grade: "C", title: "Patchwork Pipeline", desc: "You have pieces working but no system connecting them. Leads fall through cracks. Automation would close that gap quickly.", color: "#9A6B1E" },
+      { min: 40, grade: "D", title: "Leaky Bucket", desc: "You're generating some activity but without scoring, signals, or sequences, most of it goes nowhere. Time to build the infrastructure.", color: "#B5571A" },
+      { min: 0, grade: "F", title: "No Outbound System", desc: "You're running on founder hustle alone. This works until it doesn't \u2014 and it usually stops working right when you need pipeline most.", color: "#B23A2E" }
     ];
 
     const categories = [
@@ -2839,7 +3207,7 @@
       const criticals = categoryScores.filter(c => c.pct < 40);
       const highs = categoryScores.filter(c => c.pct >= 40 && c.pct < 70);
 
-      let actionsHtml = '<h3 style="font-size:16px; color:#fff; margin-bottom:16px;">Your Action Plan</h3>';
+      let actionsHtml = '<h3 style="font-size:16px; color:var(--text); margin-bottom:16px;">Your Action Plan</h3>';
       criticals.forEach(c => {
         actionsHtml += `<div class="action-item"><span class="action-priority priority-critical">Critical</span><div class="action-text"><strong>${c.name}</strong> \u2014 This is a major gap. ${getActionText(c.name)}</div></div>`;
       });
@@ -2935,6 +3303,32 @@
           plausibleEvent('scorecard_cta_nav');
         }
       });
+
+      // Stat count-ups — animate numeric tokens in place, once, motion-safe
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const counters = document.querySelectorAll('.stat-num, .result-num');
+        const countIO = new IntersectionObserver(function(entries) {
+          entries.forEach(function(entry) {
+            if (!entry.isIntersecting || entry.target.dataset.counted) return;
+            entry.target.dataset.counted = '1';
+            const el = entry.target;
+            const original = el.textContent;
+            const start = performance.now();
+            const DURATION = 700;
+            function tick(now) {
+              const p = Math.min(1, (now - start) / DURATION);
+              const eased = 1 - Math.pow(1 - p, 3);
+              el.textContent = original.replace(/\d+(\.\d+)?/g, function(m) {
+                const v = parseFloat(m) * eased;
+                return m.indexOf('.') !== -1 ? v.toFixed(1) : String(Math.round(v));
+              });
+              if (p < 1) { requestAnimationFrame(tick); } else { el.textContent = original; }
+            }
+            requestAnimationFrame(tick);
+          });
+        }, { threshold: 0.6 });
+        counters.forEach(function(c) { countIO.observe(c); });
+      }
     });
   </script>
 
