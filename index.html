@@ -2050,6 +2050,13 @@
       border-radius: 11px;
       filter: grayscale(1) sepia(0.08) contrast(1.02);
     }
+    .about-portrait-photo {
+      width: 72%;
+      height: auto;
+      border-radius: 50%;
+      filter: grayscale(1) sepia(0.08) contrast(1.02);
+      box-shadow: var(--shadow-s);
+    }
 
     /* 2.1 Hero load choreography (entrance only — fill backwards releases to natural state) */
     @media (prefers-reduced-motion: no-preference) {
@@ -2623,9 +2630,9 @@
 
       <div class="about-card fade-up">
         <div class="about-layout">
-        <div class="about-portrait" aria-hidden="true">
+        <div class="about-portrait">
           <div class="about-portrait-frame">
-            <span class="about-portrait-mark">GTM<span>iQ</span></span>
+            <img class="about-portrait-photo" src="david-mustac.png" alt="David Mustač, founder of GTMiQ" width="460" height="460" loading="lazy">
             <span class="about-portrait-caption">Zagreb &middot; CET</span>
           </div>
         </div>
