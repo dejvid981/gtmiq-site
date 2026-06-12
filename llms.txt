@@ -1,0 +1,29 @@
+# GTMiQ
+
+> Signal-based outbound engine for B2B SaaS companies (Seed to Series A) scaling sales into new regions. Built and run by David Mustač from Zagreb, Croatia. Every outbound message references a real, verifiable fact about the prospect — their growth rate, a specific customer, a strategic move — instead of templates.
+
+GTMiQ is a service of Ascendia (ascendia.ceo). Founder: David Mustač (MEng AI/Automation, University of Rijeka). Operator background: Bitget, MasterBlox, Seedify, Thespian, Resomnium.
+
+## What GTMiQ does
+
+- Builds complete outbound pipeline systems in ~4 weeks: ICP scoring framework (0-100, signal-based), research engine (n8n workflows + Claude agents that research before writing), signal-based outreach sequences, CRM integration, documented playbook with Loom training.
+- Methodology built on 2.5 years of B2B outreach pattern data — LinkedIn messages that booked meetings and call transcripts from closed deals, encoded into reusable skills.
+- Target reply rate: 6-10% (vs 1-3% industry average for template outbound). Deliberately low volume: ~5 well-researched prospects per rep per week.
+
+## Services and pricing
+
+- **Build & Handoff** — full outbound system delivered in ~4 weeks, team runs it after handoff. From EUR 1,500 one-time. Quality guarantee: rework included if a deliverable misses spec.
+- **Build & Run** — same 4-week build, then David runs the system for 8 more weeks (sends, replies, qualified meetings booked into the calendar). From EUR 3,500/month, 3 months recommended. Priced to deal size; results target written into the contract.
+- **Monthly Retainer** — ongoing weekly optimization after a build. From EUR 1,500/month, 30-day cancellation notice.
+- Fixed price. No commission, no equity. EU invoicing (reverse-charge VAT).
+
+## Who it's for
+
+B2B SaaS or tech companies, Seed to Series A, entering markets where nobody knows them yet. Small sales teams (2-6 people) or founders still running sales alone. Works mostly with European startups (London, Berlin, Amsterdam, Stockholm, Paris, CEE) and US companies where the fit makes sense.
+
+## Links
+
+- Website: https://gtm-david.vercel.app/
+- Founder LinkedIn: https://www.linkedin.com/in/david-mustac/
+- Booking: https://calendly.com/davidm98/meet-with-david
+- Contact: david@ascendia.ceo
