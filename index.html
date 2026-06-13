@@ -9,14 +9,14 @@
   <meta property="og:title" content="GTMiQ — Your Product Works. Your Pipeline Doesn't.">
   <meta property="og:description" content="Signal-based outbound engine for B2B SaaS scaling sales into new regions. Every message references a real fact about the prospect. Not spray-and-pray.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://gtm-david.vercel.app">
-  <meta property="og:image" content="https://gtm-david.vercel.app/og-image.png">
+  <meta property="og:url" content="https://gtmiq.ascendia.ceo">
+  <meta property="og:image" content="https://gtmiq.ascendia.ceo/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="GTMiQ — Your Product Works. Your Pipeline Doesn't.">
   <meta name="twitter:description" content="Signal-based outbound engine for B2B SaaS scaling sales into new regions. Every message references a real fact about the prospect.">
 
   <!-- Canonical + favicons + icons -->
-  <link rel="canonical" href="https://gtm-david.vercel.app/">
+  <link rel="canonical" href="https://gtmiq.ascendia.ceo/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/png" href="/favicon.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -28,8 +28,8 @@
     "@type": "Organization",
     "name": "GTMiQ",
     "legalName": "Ascendia",
-    "url": "https://gtm-david.vercel.app/",
-    "logo": "https://gtm-david.vercel.app/og-image.png",
+    "url": "https://gtmiq.ascendia.ceo/",
+    "logo": "https://gtmiq.ascendia.ceo/og-image.png",
     "description": "Signal-based outbound engine for B2B SaaS scaling sales into new regions. Every message references a real fact about the prospect.",
     "foundingDate": "2024-09-30",
     "founder": {
@@ -75,7 +75,7 @@
   {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "url": "https://gtm-david.vercel.app/",
+    "url": "https://gtmiq.ascendia.ceo/",
     "name": "GTMiQ",
     "author": {
       "@type": "Person",
@@ -95,7 +95,7 @@
     "provider": {
       "@type": "Organization",
       "name": "GTMiQ",
-      "url": "https://gtm-david.vercel.app/"
+      "url": "https://gtmiq.ascendia.ceo/"
     },
     "areaServed": "Worldwide",
     "description": "Complete outbound pipeline system with ICP scoring, signal detection, and personalized outreach — built by hand, handoff-ready.",
@@ -3224,7 +3224,7 @@
 
     // Share — copy results URL to clipboard (for forwarding to team)
     function shareResults() {
-      const url = 'https://gtm-david.vercel.app/#scorecard';
+      const url = 'https://gtmiq.ascendia.ceo/#scorecard';
       if (navigator.share) {
         navigator.share({
           title: 'Pipeline Readiness Scorecard',
@@ -3281,7 +3281,7 @@
           criticalGaps: criticalGaps,
           categories: categoryScores.map(c => c.name + ': ' + c.pct + '%').join(', '),
           _subject: 'GTMiQ Scorecard: ' + (company || email) + ' (' + grade.grade + ' - ' + total + '/100)',
-          _autoresponse: "Hi,\n\nYour Pipeline Readiness Scorecard came through. Score: " + total + "/100 (Grade " + grade.grade + " - " + grade.title + ").\n\nYou saw the breakdown on the results page. I'll follow up within 24 hours with 2-3 specific observations on where your biggest gaps are and what would move the needle fastest.\n\nIf you want to talk sooner, book a 15-min slot: https://calendly.com/davidm98/meet-with-david\nOr just reply to this email.\n\nNo pitch, just a conversation about what you scored and what a fix would look like.\n\nDavid\n--\nDavid Mustac | GTMiQ\nhttps://gtm-david.vercel.app\ndavid@ascendia.ceo\nhttps://www.linkedin.com/in/david-mustac/"
+          _autoresponse: "Hi,\n\nYour Pipeline Readiness Scorecard came through. Score: " + total + "/100 (Grade " + grade.grade + " - " + grade.title + ").\n\nYou saw the breakdown on the results page. I'll follow up within 24 hours with 2-3 specific observations on where your biggest gaps are and what would move the needle fastest.\n\nIf you want to talk sooner, book a 15-min slot: https://calendly.com/davidm98/meet-with-david\nOr just reply to this email.\n\nNo pitch, just a conversation about what you scored and what a fix would look like.\n\nDavid\n--\nDavid Mustac | GTMiQ\nhttps://gtmiq.ascendia.ceo\ndavid@ascendia.ceo\nhttps://www.linkedin.com/in/david-mustac/"
         })
       }).then(r => r.json()).then(data => {
         if (data.success === 'false' || data.success === false) {

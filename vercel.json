@@ -1,5 +1,13 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "gtm-david.vercel.app" }],
+      "destination": "https://gtmiq.ascendia.ceo/:path*",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
       "source": "/js/pa-m4otR3AHBPZuCDWAiodw2.js",
