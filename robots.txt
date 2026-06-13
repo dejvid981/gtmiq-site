@@ -13,4 +13,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://gtm-david.vercel.app/sitemap.xml
+Sitemap: https://gtmiq.ascendia.ceo/sitemap.xml
