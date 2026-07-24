@@ -3167,8 +3167,8 @@
       answers[currentQ] = idx;
       renderQuestion();
 
-      // Fire per-question completion event
-      plausibleEvent('scorecard_q' + (currentQ + 1) + '_answered');
+      // Fire per-question completion event (one event name, question number as a prop)
+      plausibleEvent('scorecard_question_answered', { q: String(currentQ + 1) });
 
       // Auto-advance after 400ms
       if (autoAdvanceTimer) clearTimeout(autoAdvanceTimer);
@@ -3550,6 +3550,93 @@
         counters.forEach(function(c) { countIO.observe(c); });
       }
     });
+
+    // ── Plausible: engagement + universal button tracking ──────────────────
+    // Design note: ONE event name per concept, detail carried in props.
+    // Never one event name per button — that fragments the dashboard.
+    (function() {
+      // Section-reached events (fire once each)
+      function once(sel, evt, threshold) {
+        var el = document.querySelector(sel);
+        if (!el || !('IntersectionObserver' in window)) return;
+        var fired = false;
+        var io = new IntersectionObserver(function(entries) {
+          if (!fired && entries[0].isIntersecting) {
+            fired = true;
+            plausibleEvent(evt);
+            io.disconnect();
+          }
+        }, { threshold: threshold });
+        io.observe(el);
+      }
+      once('#pricing', 'pricing_viewed', 0.4);
+      once('.comparison-wrap', 'comparison_viewed', 0.5);
+
+      document.body.addEventListener('click', function(e) {
+        var el = e.target.closest('a, button');
+        if (!el) return;
+
+        // Every button and link — label as a prop
+        var label = (el.getAttribute('aria-label') || el.textContent || '')
+          .trim().replace(/\s+/g, ' ').slice(0, 50) || el.id || 'unlabeled';
+        var sec = el.closest('section, nav, header, footer');
+        plausibleEvent('button_click', {
+          label: label,
+          section: (sec && (sec.id || sec.tagName.toLowerCase())) || 'page'
+        });
+
+        // Which pricing tier draws the click
+        var cta = el.closest('.pricing-cta');
+        if (cta) {
+          var card = cta.closest('.pricing-card');
+          var name = card && card.querySelector('.pricing-name');
+          plausibleEvent('pricing_tier_click', {
+            tier: name ? name.textContent.trim() : 'unknown'
+          });
+        }
+
+        // Which FAQ objection gets opened (checks visibility, not a class guess)
+        var q = el.closest('.faq-question');
+        if (q) {
+          var item = q.closest('.faq-item');
+          var ans = item && item.querySelector('.faq-answer');
+          setTimeout(function() {
+            if (ans && ans.offsetHeight > 0) {
+              plausibleEvent('faq_opened', { question: q.textContent.trim().slice(0, 60) });
+            }
+          }, 60);
+        }
+      });
+
+      // Scroll depth
+      var marks = [50, 75, 100], hit = {};
+      window.addEventListener('scroll', function() {
+        var h = document.documentElement;
+        var pct = ((h.scrollTop + window.innerHeight) / h.scrollHeight) * 100;
+        for (var i = 0; i < marks.length; i++) {
+          var m = marks[i];
+          if (!hit[m] && pct >= m) { hit[m] = true; plausibleEvent('scroll_depth', { depth: String(m) }); }
+        }
+      }, { passive: true });
+
+      // Consent checkbox — the blocked-submission leak
+      var box = document.getElementById('gateConsent');
+      if (box) {
+        box.addEventListener('change', function() {
+          if (this.checked) plausibleEvent('scorecard_consent_given');
+        });
+      }
+
+      // Wrap submitGate to catch submissions blocked by missing consent
+      var origSubmitGate = window.submitGate;
+      if (typeof origSubmitGate === 'function') {
+        window.submitGate = function() {
+          var c = document.getElementById('gateConsent');
+          if (c && !c.checked) plausibleEvent('scorecard_consent_blocked');
+          return origSubmitGate.apply(this, arguments);
+        };
+      }
+    })();
   </script>
 
 </body>
