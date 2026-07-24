@@ -3476,9 +3476,8 @@
         const href = target.getAttribute('href') || '';
         const text = (target.textContent || '').trim().toLowerCase();
 
-        // Any click that routes to Calendly = book intent
+        // ── Book a 15-min call — aggregate + one distinct goal per location ──
         if (href.indexOf('calendly.com') !== -1) {
-          // Identify which section the CTA is in (hero, nav, pricing, results, about, faq, bottom)
           let section = 'unknown';
           if (target.closest('nav')) section = 'nav';
           else if (target.closest('.hero')) section = 'hero';
@@ -3489,17 +3488,38 @@
           else if (target.closest('#resultsDisplay')) section = 'results';
           else if (target.closest('#scorecard')) section = 'scorecard';
           plausibleEvent('book_call_click', { section: section });
+
+          const bookGoal = {
+            hero: 'cta_book_call_hero',
+            nav: 'cta_book_call_nav',
+            about: 'cta_book_call_about',
+            bottom: 'cta_book_call_bottom',
+            results: 'result_book_call'
+          }[section];
+          if (bookGoal) plausibleEvent(bookGoal);
         }
 
-        // Score Your Pipeline button (hero)
-        if (href === '#scorecard' && target.closest('.hero')) {
-          plausibleEvent('scorecard_cta_hero');
+        // ── Score Your Pipeline — one distinct goal per location ──
+        if (href === '#scorecard') {
+          if (target.closest('nav')) plausibleEvent('cta_score_pipeline_nav');
+          else if (target.closest('.hero')) plausibleEvent('cta_score_pipeline_hero');
+          else if (target.closest('.bottom-cta')) plausibleEvent('cta_score_pipeline_bottom');
         }
 
-        // Nav scorecard link
-        if (href === '#scorecard' && target.closest('nav')) {
-          plausibleEvent('scorecard_cta_nav');
+        // ── Pricing: which engagement model draws the click ──
+        const priceCta = target.closest('.pricing-cta');
+        if (priceCta) {
+          const card = priceCta.closest('.pricing-card');
+          const nameEl = card && card.querySelector('.pricing-name');
+          const name = nameEl ? nameEl.textContent.trim().toLowerCase() : '';
+          if (name.indexOf('handoff') !== -1) plausibleEvent('pricing_build_handoff');
+          else if (name.indexOf('run') !== -1) plausibleEvent('pricing_build_run');
+          else if (name.indexOf('retainer') !== -1) plausibleEvent('pricing_retainer');
         }
+
+        // ── About block: email + LinkedIn ──
+        if (href.indexOf('mailto:') === 0) plausibleEvent('contact_email_click');
+        if (href.indexOf('linkedin.com') !== -1) plausibleEvent('contact_linkedin_click');
       });
 
       // Mobile comparison cards — transpose the table into per-vendor cards (GTMiQ open, rest collapsed)
@@ -3631,6 +3651,7 @@
       var origSubmitGate = window.submitGate;
       if (typeof origSubmitGate === 'function') {
         window.submitGate = function() {
+          plausibleEvent('scorecard_unlock_click');
           var c = document.getElementById('gateConsent');
           if (c && !c.checked) plausibleEvent('scorecard_consent_blocked');
           return origSubmitGate.apply(this, arguments);
