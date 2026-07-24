@@ -1,5 +1,6 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
   "redirects": [
     {
       "source": "/:path*",
@@ -10,8 +11,8 @@
   ],
   "rewrites": [
     {
-      "source": "/js/pa-m4otR3AHBPZuCDWAiodw2.js",
-      "destination": "https://plausible.io/js/pa-m4otR3AHBPZuCDWAiodw2.js"
+      "source": "/js/pa-LYoq0BsufBMlrf9RHebQM.js",
+      "destination": "https://plausible.io/js/pa-LYoq0BsufBMlrf9RHebQM.js"
     },
     {
       "source": "/api/event",
