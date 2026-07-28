@@ -119,8 +119,8 @@
         },
         {
           "@type": "Offer",
-          "name": "Monthly Retainer",
-          "description": "Ongoing weekly optimization after a Build. Sequence tuning, new lead lists, reply-rate calibration. From €1,500/mo. No long-term lock-in — cancel with 30 days' notice."
+          "name": "GTM Advisory",
+          "description": "No build — the go-to-market plan and the steering to run it, for founders pre-PMF or entering a new market. Covers the GTM plan (which segment, channel and order), positioning and the competitive wedge, the beachhead ICP to land first, a weekly working call, and PMF and raise-readiness. Your team executes; I set the direction. From €1,500/mo. Month-to-month, cancel with 30 days' notice."
         }
       ]
     }
@@ -138,7 +138,7 @@
         "name": "What kind of company is this for?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "B2B SaaS or tech companies, Seed to Series A, scaling sales into new regions where nobody knows them yet. Small sales team (2-6 people) or founder still doing most of it. You have a product that works. You don't have a system that consistently puts qualified meetings on your team's calendar."
+          "text": "B2B SaaS or tech companies, pre-seed to Series A, scaling sales into new regions where nobody knows them yet. Small sales team (2-6 people) or founder still doing most of it. You have a product that works. You don't have a system that consistently puts qualified meetings on your team's calendar."
         }
       },
       {
@@ -178,7 +178,7 @@
         "name": "What happens after the Build?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Two paths. Build & Handoff: you have a complete system with documentation, your team runs it from day one. Build & Run: I run it for the following 8 weeks — sends, replies, calendar bookings. After that, the Monthly Retainer is optional — your team runs the system, I keep optimizing it."
+          "text": "Two paths. Build & Handoff: you have a complete system with documentation, your team runs it from day one. Build & Run: I run it for the following 8 weeks — sends, replies, calendar bookings. Beyond the build, GTM Advisory is optional — I stay on to steer strategy, targeting and PMF while your team runs the day-to-day."
         }
       },
       {
@@ -202,7 +202,7 @@
         "name": "Do you take a commission on deals closed?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Fixed price, no commission, no equity. I'm a consultant building a system, not a partner sharing in your revenue. The incentive is to build something good enough that you want to stay on retainer — not to ride your sales."
+          "text": "No. Fixed price, no commission, no equity. I'm a consultant building a system, not a partner sharing in your revenue. The incentive is to build something good enough that you want to keep working with me — not to ride your sales."
         }
       },
       {
@@ -956,52 +956,6 @@
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
-
-    /* WHO THIS IS FOR */
-    .qualifier-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 32px;
-      margin-top: 48px;
-    }
-
-    .qualifier-col h3 {
-      font-size: 18px;
-      font-weight: 600;
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .qualifier-col.yes h3 { color: var(--accent); }
-    .qualifier-col.no h3 { color: var(--text); }
-
-    .qualifier-col ul {
-      list-style: none;
-    }
-
-    .qualifier-col ul li {
-      font-size: 15px;
-      color: var(--text-dim);
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-      display: flex;
-      gap: 10px;
-      align-items: flex-start;
-      line-height: 1.5;
-    }
-
-    .qualifier-col ul li:last-child { border-bottom: none; }
-
-    .qualifier-col ul li span.qi {
-      flex-shrink: 0;
-      font-weight: 700;
-      font-size: 14px;
-    }
-
-    .qualifier-col.yes .qi { color: var(--accent); }
-    .qualifier-col.no .qi { color: var(--red); }
 
     /* SCORECARD */
     #scorecard {
@@ -1892,7 +1846,6 @@
       .step-num { font-size: 24px; }
       .results-stats { grid-template-columns: 1fr; gap: 24px; }
       .pricing-grid { grid-template-columns: 1fr; }
-      .qualifier-grid { grid-template-columns: 1fr; }
       .scorecard-container { padding: 24px 18px; }
       .scorecard-option { padding: 14px 14px; font-size: 14px; line-height: 1.45; }
       .scorecard-question { font-size: 17px; }
@@ -2287,10 +2240,10 @@
       <div class="hero-grid">
         <div class="hero-copy">
           <div class="hero-badge"><span class="pulse"></span> Taking <span id="bookingMonth">new</span> bookings</div>
-          <h1>Templates Don't Convert.<br>Real <em>Signals</em> Do.</h1>
-          <p class="subline">Qualified meetings on your calendar from cold outbound that references a real fact about each prospect &mdash; their growth rate, a specific customer, a strategic move. Built and documented in ~4 weeks, for B2B SaaS entering new markets.</p>
+          <h1>Qualified Meetings in a New Market &mdash; Without a &euro;90K <em>SDR Hire</em>.</h1>
+          <p class="subline">For founder-led B2B SaaS scaling where nobody knows them yet: a signal-based outbound system that references a real fact about each prospect &mdash; their growth rate, a customer, a strategic move. Built and documented in ~4 weeks; your team runs it, or I do.</p>
           <div class="hero-ctas">
-            <a href="#scorecard" class="btn-primary">Score Your Pipeline</a>
+            <a href="#scorecard" class="btn-primary">Score My Pipeline (2 min)</a>
             <a href="https://calendly.com/davidm98/meet-with-david" target="_blank" rel="noopener noreferrer" class="btn-secondary">Book a 15-min call</a>
           </div>
         </div>
@@ -2350,7 +2303,7 @@
     <div class="container">
       <div class="section-label fade-up">The Problem</div>
       <h2 class="section-title fade-up">You're the Entire Sales Team</h2>
-      <p class="section-subtitle fade-up">Most Seed to Series A founders I talk to are stuck in the same loop when they try to scale into new regions.</p>
+      <p class="section-subtitle fade-up">Most pre-seed to Series A founders I talk to are stuck in the same loop when they try to scale into new regions.</p>
 
       <div class="problem-grid">
         <div class="problem-card bad fade-up">
@@ -2384,7 +2337,7 @@
       <div class="problem-grid">
         <div class="problem-card good fade-up">
           <h3>The 2-Person Team That Should Cover 5</h3>
-          <p><strong>You have two sales people.</strong> You don&rsquo;t want a third, fourth, or fifth &mdash; you want the two you have to perform like five. What multiplies them is a system underneath them, not another hire: ICP scoring that filters who they touch, signal-based research that means they walk into every conversation already informed, and sequences that get read because the message is grounded in real intel. Same team, multiples of the territory covered.</p>
+          <p><strong>You have two sales people.</strong> You don&rsquo;t want a third, fourth, or fifth &mdash; you want the two you have to perform like five. What multiplies them is a system underneath them, not another hire: ICP scoring that filters who they touch, signal-based research that means they walk into every conversation already informed, and sequences that get read because the message is grounded in real intel. The same two people end up covering multiples of the territory.</p>
         </div>
         <div class="problem-card good fade-up">
           <h3>The Founder Testing a New Market Alone</h3>
@@ -2436,7 +2389,7 @@
             <div class="result-context">LinkedIn messages + call transcripts that converted</div>
           </div>
         </div>
-        <p class="results-context">Response rate isn&rsquo;t magic. It&rsquo;s the system forcing thoroughness before the writing &mdash; when the research is deep, the outreach reads as written by someone who actually understands the recipient.</p>
+        <p class="results-context">The response rate comes from forcing thoroughness before the writing. When the research is deep, the outreach reads as written by someone who actually understands the recipient.</p>
       </div>
     </div>
   </section>
@@ -2483,38 +2436,6 @@
         </div>
       </div>
       <p class="micro-cta fade-up"><a href="#scorecard">Sound familiar? &rarr; Score your pipeline (2 min)</a></p>
-    </div>
-  </section>
-
-  <!-- WHO THIS IS FOR -->
-  <section id="qualifier">
-    <div class="container">
-      <div class="section-label fade-up" style="text-align:center;">Who This Is For</div>
-      <h2 class="section-title fade-up" style="text-align:center;">Right Fit, Wrong Fit</h2>
-      <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">GTMiQ isn't for everyone. Here's how to know if this makes sense for you.</p>
-
-      <div class="qualifier-grid">
-        <div class="qualifier-col yes fade-up">
-          <h3><span>&#10003;</span> Good Fit</h3>
-          <ul>
-            <li><span class="qi">&#10003;</span> Seed to Series A B2B SaaS or tech company</li>
-            <li><span class="qi">&#10003;</span> Scaling sales into new regions where nobody knows you yet</li>
-            <li><span class="qi">&#10003;</span> Small sales team (2&ndash;6 people) or founder still doing it alone</li>
-            <li><span class="qi">&#10003;</span> You want a documented system your team can run</li>
-            <li><span class="qi">&#10003;</span> You&rsquo;re ready to commit to a 3-month engagement to prove the motion before scaling</li>
-          </ul>
-        </div>
-        <div class="qualifier-col no fade-up">
-          <h3><span>&#10007;</span> Not a Fit</h3>
-          <ul>
-            <li><span class="qi">&#10007;</span> You want a magic tool, not a system</li>
-            <li><span class="qi">&#10007;</span> You're pre-product with no customers yet</li>
-            <li><span class="qi">&#10007;</span> You already have a senior sales team and defined playbook</li>
-            <li><span class="qi">&#10007;</span> You have no budget for a paid engagement</li>
-            <li><span class="qi">&#10007;</span> You just want "more emails sent faster"</li>
-          </ul>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -2620,8 +2541,9 @@
     <div class="container">
       <div class="section-label fade-up" style="text-align:center;">Engagement</div>
       <h2 class="section-title fade-up" style="text-align:center;">Three Ways to Work Together</h2>
-      <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">A fraction of what a GTM hire costs. Choose: take the playbook in-house after I build it, or let me run it and book your calls. Monthly Retainer optional after either.</p>
+      <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">A fraction of what a GTM hire costs. Three ways in: my direction as your GTM advisor, I build the system and hand it over, or I build it and run it for you.</p>
       <p class="pricing-chips fade-up">Fixed price &middot; No commission &middot; No equity</p>
+      <p class="fade-up" style="text-align:center; max-width:620px; margin:6px auto 0; color:var(--muted); font-size:0.92rem;">Scope and price fixed before kickoff. Build &amp; Handoff carries a rework guarantee; Build &amp; Run targets are written into the contract.</p>
 
       <div class="pricing-grid">
         <div class="pricing-card fade-up">
@@ -2657,18 +2579,18 @@
         </div>
 
         <div class="pricing-card fade-up">
-          <div class="pricing-name">Monthly Retainer</div>
-          <div class="pricing-desc">After the build: your team runs the system, I keep it sharp. Optional.</div>
+          <div class="pricing-name">GTM Advisory</div>
+          <div class="pricing-desc">No build &mdash; the go-to-market plan and the steering to run it. For founders pre-PMF or entering a new market: I set the direction, your team executes.</div>
           <div class="pricing-price">From &euro;1,500 <span>/ month &middot; 30-day notice</span></div>
-          <div class="pricing-note">No long-term lock-in &mdash; cancel with 30 days&rsquo; notice. Scales with scope.</div>
+          <div class="pricing-note">When you&rsquo;re not ready for a full build yet &mdash; you need to know what to do, in what order. Month-to-month, cancel with 30 days&rsquo; notice.</div>
           <ul class="pricing-features">
-            <li><span class="check">&#10003;</span> Weekly sequence optimization</li>
-            <li><span class="check">&#10003;</span> New lead list generation</li>
-            <li><span class="check">&#10003;</span> Reply-rate calibration + A/B testing</li>
-            <li><span class="check">&#10003;</span> Signal source tuning</li>
-            <li><span class="check">&#10003;</span> Pipeline reporting</li>
+            <li><span class="check">&#10003;</span> GTM plan &mdash; which segment, which channel, which order</li>
+            <li><span class="check">&#10003;</span> Positioning + the wedge &mdash; how you win against the incumbent</li>
+            <li><span class="check">&#10003;</span> Beachhead ICP &mdash; the one buyer to land first</li>
+            <li><span class="check">&#10003;</span> Weekly working call + async access &mdash; I steer, your team executes</li>
+            <li><span class="check">&#10003;</span> PMF &amp; raise-readiness &mdash; the traction story that unlocks the round</li>
           </ul>
-          <a href="https://calendly.com/davidm98/meet-with-david" target="_blank" rel="noopener noreferrer" class="pricing-cta secondary">Talk Ongoing Support</a>
+          <a href="https://calendly.com/davidm98/meet-with-david" target="_blank" rel="noopener noreferrer" class="pricing-cta secondary">Talk GTM Advisory</a>
         </div>
       </div>
     </div>
@@ -2679,7 +2601,7 @@
     <div class="container-wide">
       <div class="section-label fade-up" style="text-align:center;">Vs the alternatives</div>
       <h2 class="section-title fade-up" style="text-align:center;">Where this sits against hiring and tooling</h2>
-      <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">Different shape, different outcome. A mid-level SDR costs &euro;60&ndash;90K/yr fully loaded. A tool subscription costs &euro;50-500/mo forever. GTMiQ either builds you a system and hands it over &mdash; or builds it and runs it for you.</p>
+      <p class="section-subtitle fade-up" style="text-align:center; margin-left:auto; margin-right:auto;">GTMiQ is a different shape from both. A mid-level SDR costs &euro;60&ndash;90K/yr fully loaded. A tool subscription costs &euro;50-500/mo forever. GTMiQ either builds you a system and hands it over &mdash; or builds it and runs it for you.</p>
 
       <div class="comparison-swipe-hint">&larr; swipe to compare &rarr;</div>
 
@@ -2827,7 +2749,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-answer">
-            <p>B2B SaaS or tech companies, Seed to Series A, scaling sales into new regions where nobody knows them yet. Small sales team (2&ndash;6 people) or founder still doing most of it. You have a product that works. You don't have a system that consistently puts qualified meetings on your team's calendar. That's the shape.</p>
+            <p>B2B SaaS or tech companies, pre-seed to Series A, scaling sales into new regions where nobody knows them yet. Small sales team (2&ndash;6 people) or founder still doing most of it. You have a product that works. You don't have a system that consistently puts qualified meetings on your team's calendar. That's the shape.</p>
           </div>
         </div>
         <div class="faq-item fade-up">
@@ -2872,7 +2794,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-answer">
-            <p>Two paths. <strong>Build &amp; Handoff:</strong> you have a complete system with documentation, your team runs it from day one. <strong>Build &amp; Run:</strong> I run it for the following 8 weeks &mdash; sends, replies, calendar bookings. After that, the <strong>Monthly Retainer</strong> is optional &mdash; your team runs the system, I keep optimizing it.</p>
+            <p>Two paths. <strong>Build &amp; Handoff:</strong> you have a complete system with documentation, your team runs it from day one. <strong>Build &amp; Run:</strong> I run it for the following 8 weeks &mdash; sends, replies, calendar bookings. Beyond the build, <strong>GTM Advisory</strong> is optional &mdash; I stay on to steer strategy, targeting and PMF while your team runs the day-to-day.</p>
           </div>
         </div>
         <div class="faq-item fade-up">
@@ -2899,7 +2821,7 @@
             <span class="faq-arrow">+</span>
           </button>
           <div class="faq-answer">
-            <p>No. Fixed price, no commission, no equity. I'm a consultant building a system, not a partner sharing in your revenue. The incentive is to build something good enough that you want to stay on retainer &mdash; not to ride your sales.</p>
+            <p>No. Fixed price, no commission, no equity. I'm a consultant building a system, not a partner sharing in your revenue. The incentive is to build something good enough that you want to keep working with me &mdash; not to ride your sales.</p>
           </div>
         </div>
         <div class="faq-item fade-up">
@@ -3514,7 +3436,7 @@
           const name = nameEl ? nameEl.textContent.trim().toLowerCase() : '';
           if (name.indexOf('handoff') !== -1) plausibleEvent('pricing_build_handoff');
           else if (name.indexOf('run') !== -1) plausibleEvent('pricing_build_run');
-          else if (name.indexOf('retainer') !== -1) plausibleEvent('pricing_retainer');
+          else if (name.indexOf('advisory') !== -1) plausibleEvent('pricing_advisory');
         }
 
         // ── About block: email + LinkedIn ──
