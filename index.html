@@ -2493,10 +2493,10 @@
             <input type="text" id="gateCompany" placeholder="Company name (optional)" aria-label="Company name">
             <label class="gate-consent">
               <input type="checkbox" id="gateConsent">
-              <span>I agree to be contacted about my results and to the <a href="/privacy" target="_blank" rel="noopener">privacy policy</a>.</span>
+              <span>Send me the interpretation, not just the score.</span>
             </label>
-            <div id="consentError" style="color:var(--red); font-size:13px; margin-bottom:8px; display:none;">Please agree to the privacy policy to continue.</div>
             <button type="button" class="btn-primary" style="width:100%; margin-top:8px;" onclick="submitGate()">Unlock Full Report</button>
+            <p style="font-size:12.5px; color:var(--muted); margin-top:10px; line-height:1.5;">We&rsquo;ll email your results. No spam, unsubscribe anytime. <a href="/privacy" target="_blank" rel="noopener">Privacy policy</a></p>
           </div>
         </div>
 
@@ -3205,14 +3205,11 @@
       }
       errorEl.style.display = 'none';
 
-      // GDPR consent — required before any personal data is submitted
+      // Results delivery runs on legitimate interest (B2B, they requested the report).
+      // The checkbox is an OPTIONAL opt-in for the personal interpretation follow-up —
+      // never a gate. Capture it so the follow-up only goes to people who asked for it.
       const consentEl = document.getElementById('gateConsent');
-      const consentError = document.getElementById('consentError');
-      if (!consentEl || !consentEl.checked) {
-        if (consentError) consentError.style.display = 'block';
-        return;
-      }
-      if (consentError) consentError.style.display = 'none';
+      const wantsInterpretation = !!(consentEl && consentEl.checked);
 
       // Show loading state on button
       const submitBtn = document.querySelector('.email-gate .btn-primary');
@@ -3241,8 +3238,13 @@
           grade: grade.grade + ' - ' + grade.title,
           criticalGaps: criticalGaps,
           categories: categoryScores.map(c => c.name + ': ' + c.pct + '%').join(', '),
-          _subject: 'GTMiQ Scorecard: ' + (company || email) + ' (' + grade.grade + ' - ' + total + '/100)',
-          _autoresponse: "Hi,\n\nYour Pipeline Readiness Scorecard came through. Score: " + total + "/100 (Grade " + grade.grade + " - " + grade.title + ").\n\nYou saw the breakdown on the results page. I'll follow up within 24 hours with 2-3 specific observations on where your biggest gaps are and what would move the needle fastest.\n\nIf you want to talk sooner, book a 15-min slot: https://calendly.com/davidm98/meet-with-david\nOr just reply to this email.\n\nNo pitch, just a conversation about what you scored and what a fix would look like.\n\nDavid\n--\nDavid Mustac | GTMiQ\nhttps://gtmiq.ascendia.ceo\ndavid@ascendia.ceo\nhttps://www.linkedin.com/in/david-mustac/"
+          wantsInterpretation: wantsInterpretation ? 'YES — asked for the interpretation' : 'no — results only',
+          _subject: 'GTMiQ Scorecard' + (wantsInterpretation ? ' [WANTS INTERPRETATION]' : '') + ': ' + (company || email) + ' (' + grade.grade + ' - ' + total + '/100)',
+          _autoresponse: "Hi,\n\nYour Pipeline Readiness Scorecard came through. Score: " + total + "/100 (Grade " + grade.grade + " - " + grade.title + ").\n\nYou saw the breakdown on the results page."
+            + (wantsInterpretation
+                ? "\n\nYou asked for the interpretation, so I'll go through your answers and come back within 24 hours with 2-3 specific observations on where your biggest gaps are and what would move the needle fastest."
+                : "\n\nThat's everything you asked for — no follow-up unless you want one. If you'd like my read on what your score actually means, just reply and I'll go through it.")
+            + "\n\nIf you want to talk sooner, book a 15-min slot: https://calendly.com/davidm98/meet-with-david\nOr just reply to this email.\n\nNo pitch, just a conversation about what you scored and what a fix would look like.\n\nDavid\n--\nDavid Mustac | GTMiQ\nhttps://gtmiq.ascendia.ceo\ndavid@ascendia.ceo\nhttps://www.linkedin.com/in/david-mustac/"
         })
       }).then(r => r.json()).then(data => {
         if (data.success === 'false' || data.success === false) {
@@ -3274,6 +3276,7 @@
           q9: answers[8] !== null ? questions[8].options[answers[8]].text + ' (' + questions[8].options[answers[8]].score + '/10)' : '',
           q10: answers[9] !== null ? questions[9].options[answers[9]].text + ' (' + questions[9].options[answers[9]].score + '/10)' : '',
           criticalGaps: criticalGaps,
+          wantsInterpretation: wantsInterpretation,
           utm_source: urlParams.get('utm_source') || '',
           utm_medium: urlParams.get('utm_medium') || '',
           utm_campaign: urlParams.get('utm_campaign') || '',
@@ -3561,21 +3564,24 @@
         }
       }, { passive: true });
 
-      // Consent checkbox — the blocked-submission leak
+      // Interpretation opt-in — measures how many WANT the follow-up.
+      // This is the number that says whether the copy is working: under ~50% and
+      // the wording is wrong, not the structure.
       var box = document.getElementById('gateConsent');
       if (box) {
         box.addEventListener('change', function() {
-          if (this.checked) plausibleEvent('scorecard_consent_given');
+          if (this.checked) plausibleEvent('scorecard_interpretation_optin');
         });
       }
 
-      // Wrap submitGate to catch submissions blocked by missing consent
+      // Wrap submitGate to record the opt-in rate at the moment of submission
       var origSubmitGate = window.submitGate;
       if (typeof origSubmitGate === 'function') {
         window.submitGate = function() {
-          plausibleEvent('scorecard_unlock_click');
           var c = document.getElementById('gateConsent');
-          if (c && !c.checked) plausibleEvent('scorecard_consent_blocked');
+          plausibleEvent('scorecard_unlock_click', {
+            interpretation: (c && c.checked) ? 'yes' : 'no'
+          });
           return origSubmitGate.apply(this, arguments);
         };
       }
